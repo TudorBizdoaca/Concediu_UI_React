@@ -1,8 +1,16 @@
 import React from 'react'
 import { IconCard } from '@bit/totalsoft_oss.react-mui.kit.core'
 import AccountBoxIcon from '@material-ui/icons/AccountBox'
+import EmployeesGrid from 'features/employees/EmployeesGrid'
 
 function Employees() {
+  // var employee = {
+  //   avatar: '',
+  //   lastName: 'Chirita',
+  //   firstName: 'Alberto',
+  //   phone: '0727123456',
+  //   email: 'alberto.chirita@totalsoft.ro'
+  // }
   var employees = [
     {
       avatar: '',
@@ -20,8 +28,7 @@ function Employees() {
     }
   ]
 
-  // return <IconCard icon={() => <AccountBoxIcon />} iconColor="orange" title={} content={} />
-  return 'Hello World!'
+  return <IconCard icon={AccountBoxIcon} iconColor='blue' title='Employees' content={<EmployeesGrid />} />
 }
 
 export default Employees
