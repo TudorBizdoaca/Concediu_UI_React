@@ -4,6 +4,7 @@ import { IconCard } from '@bit/totalsoft_oss.react-mui.kit.core'
 import GroupIcon from '@material-ui/icons/Group'
 import { useTranslation } from 'react-i18next'
 import EmployeesGrid from 'features/employees/EmployeesGrid'
+import EmployeesCardsList from 'features/employees/EmployeesCardsList'
 import { TextField } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 
@@ -31,6 +32,7 @@ function Employees() {
             </Button>
           </div>
           <EmployeesGrid />
+          <EmployeesCardsList />
         </div>
       }
     />
