@@ -11,12 +11,17 @@ import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles({
   card: {
+    display: 'block',
     width: '300px',
     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)',
     background: '#FFFFFF',
     borderRadius: '14px',
+    margin: 'auto',
     padding: '24px',
     textAlign: 'center'
+  },
+  cardContent: {
+    padding: '0 0 0 0'
   },
   image: {
     width: '50%',
@@ -26,6 +31,7 @@ const useStyles = makeStyles({
     borderRadius: '26px'
   },
   name: {
+    margin: 0,
     fontWeight: 700,
     fontSize: '18px',
     lineHeight: '34px',
@@ -51,10 +57,10 @@ const useStyles = makeStyles({
     fontWeight: '600',
     fontSize: '14px',
     lineHeight: '19px'
-  },
-  cardActions: {
-    justifyContent: 'center'
   }
+  // cardActions: {
+  //   justifyContent: 'center'
+  // }
 })
 
 function EmployeeCard() {
@@ -67,32 +73,32 @@ function EmployeeCard() {
         component='img'
         alt='User'
         height='140'
-        image='https://c4.wallpaperflare.com/wallpaper/560/148/51/breaking-bad-tv-heisenberg-wallpaper-thumb.jpg'
+        image='https://cdn.dribbble.com/users/1035801/screenshots/15922263/0-cover.png'
         title='User'
       />
-      <CardContent>
+      <CardContent className={classes.cardContent}>
         <Typography className={classes.name} gutterBottom variant='h5' component='h2'>
-          Walter White
+          Chirita Alberto-Marian
         </Typography>
         <Typography className={classes.job} component='p'>
-          The Cook
+          Frontend Developer
         </Typography>
         <div className={classes.contact}>
           <div className={classes.contactItem}>
             <img className={classes.contactIcon} alt='iconPhone' src={iconPhone} />
-            <span className={classes.contactText}>walter.white@totalsoft.ro</span>
-          </div>
-          <div className={classes.contactItem}>
-            <img className={classes.contactIcon} alt='iconPhone' src={iconEmail} />
             <span className={classes.contactText}>0727 123 456</span>
+          </div>
+          <div>
+            <img className={classes.contactIcon} alt='iconPhone' src={iconEmail} />
+            <span className={classes.contactText}>alberto.chirita@totalsoft.ro</span>
           </div>
         </div>
       </CardContent>
-      <CardActions className={classes.cardActions}>
+      {/* <CardActions className={classes.cardActions}>
         <Button size='large' color='#6418c3'>
           View
         </Button>
-      </CardActions>
+      </CardActions> */}
     </Paper>
   )
 }

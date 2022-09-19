@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid } from '@material-ui/core'
 import EmployeeCard from 'features/employees/EmployeeCard'
 import { makeStyles } from '@material-ui/core/styles'
+import { findLastIndex } from 'ramda'
 
 function createData(id, avatar, lastName, firstName, email, phone, identifierNumber, birthDate, hireDate, vacationDays) {
   return { id, avatar, lastName, firstName, email, phone, identifierNumber, birthDate, hireDate, vacationDays }
@@ -72,6 +73,8 @@ const employees = [
 
 const useStyles = makeStyles({
   cardsList: {
+    display: 'flex',
+    flexWrap: 'wrap',
     backgroundColor: '#f9f9f9',
     padding: '24px'
   }
@@ -84,7 +87,7 @@ function EmployeesCardsList() {
     <div className={classes.cardsList}>
       <Grid container spacing={4}>
         {employees.map((employee, index) => (
-          <Grid item key={index}>
+          <Grid item sm={12} md={6} lg={4} xl={3} key={index}>
             <EmployeeCard />
           </Grid>
         ))}
