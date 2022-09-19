@@ -53,5 +53,16 @@
       "MinCharacters": "The length must be greater than {{min}}",
       "Unique": "The value of {{selector}} must be unique"
     }
+  },
+  "Employees": {
+    "Avatar": "Avatar",
+    "LastName": "Last Name",
+    "FirstName": "First Name",
+    "Email": "Email",
+    "Phone": "Phone",
+    "IdentifierNumber": "Identifier Number",
+    "BirthDate": "Birth Date",
+    "HireDate": "Hire Date",
+    "VacationDays": "Vacation Days"
   }
 }
