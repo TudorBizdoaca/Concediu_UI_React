@@ -1,41 +1,22 @@
 import React from 'react'
-import { withStyles, makeStyles } from '@material-ui/core/styles'
-import { IconCard } from '@bit/totalsoft_oss.react-mui.kit.core'
-import GroupIcon from '@material-ui/icons/Group'
+import EmployeesCardsList from 'features/employees/EmployeesGrid'
 import { useTranslation } from 'react-i18next'
-import EmployeesGrid from 'features/employees/EmployeesGrid'
-import EmployeesCardsList from 'features/employees/EmployeesCardsList'
-import { TextField } from '@material-ui/core'
-import Button from '@material-ui/core/Button'
+import { makeStyles } from '@material-ui/core/styles'
+import employeesStyle from 'features/employees/styles/employeesStyle'
 
-const useStyles = makeStyles({
-  filters: {
-    margin: '25px 0 25px 0'
-  }
-})
+const useStyles = makeStyles(employeesStyle)
 
 function Employees() {
-  const classes = useStyles()
   const { t } = useTranslation()
+  const classes = useStyles()
 
   return (
-    <IconCard
-      icon={GroupIcon}
-      iconColor='blue'
-      title={t('NavBar.Employees')}
-      content={
-        <div>
-          <div className={classes.filters}>
-            <TextField label={'Name'}></TextField>
-            <Button variant='contained' color='primary' size='medium'>
-              {'Search'}
-            </Button>
-          </div>
-          <EmployeesGrid />
-          <EmployeesCardsList />
-        </div>
-      }
-    />
+    <div className={classes.page}>
+      <div className={classes.pageHeader}>
+        <h1 className={classes.title}>Colegii mei</h1>
+      </div>
+      <EmployeesCardsList />
+    </div>
   )
 }
 
