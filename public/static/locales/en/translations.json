@@ -24,7 +24,14 @@
   "Tooltips": {
     "Logout": "Logout",
     "HidePassword": "Hide password",
-    "ShowPassword": "Show password"
+    "ShowPassword": "Show password",
+    "Holidays": "Holidays"
+  },
+  "IstoricConcedii": {
+    "Period": "Period: ",
+    "Type": "Type: ",
+    "Substitute": "Substitute: ",
+    "ReasonForRejection": "Reason for rejection: "
   },
   "Dialog": {
     "Yes": "Yes",
