@@ -14,7 +14,7 @@
   "Forbidden": "Not allowed to see this page!",
   "NavBar": {
     "Dashboard": "Dashboard",
-    "HolidayHistory":"Holiday History",
+    "HolidayHistory": "Holiday History",
     "Employees": "Employees",
     "Settings": "Settings",
     "Privacy": "Privacy",
@@ -66,5 +66,18 @@
     "BirthDate": "Birth Date",
     "HireDate": "Hire Date",
     "VacationDays": "Vacation Days"
+  },
+
+  "VacationsContainer": {
+    "Vacations": "Vacations",
+    "Name": "Name",
+    "Manager": "Manager",
+    "Vacations Type": "Vacations Type",
+    "Replacement": "Replacement",
+    "Starting Date": "Starting Date",
+    "Ending Date": "Ending Date",
+    "State": "State",
+    "Reason": "Reason",
+    "Modify": "Modify"
   }
 }
