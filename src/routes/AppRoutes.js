@@ -6,7 +6,7 @@ import CustomRoute from '../components/routing/CustomRoute'
 
 import { Forbidden, NotFound } from '@bit/totalsoft_oss.react-mui.kit.core'
 import Dashboard from 'features/dashboard/Dashboard'
-import Vacations from 'features/vacations/Vacations'
+import VacationsContainer from 'features/vacations/VacationsContainer'
 import Employees from 'features/employees/Employees'
 import IstoricConcedii from 'features/istoric/IstoricConcedii'
 export default function AppRoutes() {
@@ -14,7 +14,7 @@ export default function AppRoutes() {
     <Switch>
       <CustomRoute isPrivate={false} exact path='/dashboard' component={Dashboard} />
       <Redirect exact from='/' to='/dashboard' />
-      <CustomRoute isPrivate={false} exact path='/vacations' component={Vacations} />
+      <CustomRoute isPrivate={false} exact path='/vacations' component={VacationsContainer} />
       <CustomRoute isPrivate={false} exact path='/employees' component={Employees} />
       <CustomRoute isPrivate={false} exact path='/history' component={IstoricConcedii} />
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />

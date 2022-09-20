@@ -16,7 +16,14 @@
   "Tooltips": {
     "Logout": "Iesire",
     "HidePassword": "Ascunde parola",
-    "ShowPassword": "Arata parola"
+    "ShowPassword": "Arata parola",
+    "Holidays": "Concedii"
+  },
+  "IstoricConcedii": {
+    "Period": "Perioada: ",
+    "Type": "Tip: ",
+    "Substitute": "Inlocuitor: ",
+    "ReasonForRejection": "Motiv Respingere: "
   },
   "Dialog": {
     "Yes": "Da",
@@ -58,5 +65,18 @@
     "BirthDate": "Data Nastere",
     "HireDate": "Data Angajare",
     "VacationDays": "Zile Concediu"
+  },
+
+  "VacationsContainer": {
+    "Vacations": "Concedii",
+    "Name": "Nume",
+    "Manager": "Manager",
+    "Vacations Type": "Tip Concediu",
+    "Replacement": "Inlocuitor",
+    "Starting Date": "Data Inceput",
+    "Ending Date": "Data Sfarsit",
+    "State": "Stare",
+    "Reason": "Motiv",
+    "Modify": "Modifica"
   }
 }
