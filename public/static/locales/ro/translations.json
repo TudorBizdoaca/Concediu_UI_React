@@ -10,7 +10,8 @@
     "Employees": "Angajati",
     "Settings": "Setari",
     "Privacy": "Confidentialitate",
-    "Security": "Securitate"
+    "Security": "Securitate",
+    "Vacations": "Concedii"
   },
   "Tooltips": {
     "Logout": "Iesire",
@@ -53,5 +54,16 @@
       "MinCharacters": "Lungimea trebuie sa fie mai mare decat {{min}}",
       "Unique": "Valoarea pentru {{selector}} trebuie sa fie unica"
     }
+  },
+  "Employees": {
+    "Avatar": "Avatar",
+    "LastName": "Nume",
+    "FirstName": "Prenume",
+    "Email": "Email",
+    "Phone": "Telefon",
+    "IdentifierNumber": "CNP",
+    "BirthDate": "Data Nastere",
+    "HireDate": "Data Angajare",
+    "VacationDays": "Zile Concediu"
   }
 }
