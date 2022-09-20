@@ -15,7 +15,14 @@
   "Tooltips": {
     "Logout": "Iesire",
     "HidePassword": "Ascunde parola",
-    "ShowPassword": "Arata parola"
+    "ShowPassword": "Arata parola",
+    "Holidays": "Concedii"
+  },
+  "IstoricConcedii": {
+    "Period": "Perioada: ",
+    "Type": "Tip: ",
+    "Substitute": "Inlocuitor: ",
+    "ReasonForRejection": "Motiv Respingere: "
   },
   "Dialog": {
     "Yes": "Da",
