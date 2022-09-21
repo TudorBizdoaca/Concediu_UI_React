@@ -11,13 +11,14 @@
     "Settings": "Setari",
     "Privacy": "Confidentialitate",
     "Security": "Securitate",
-    "Vacations": "Concedii"
+    "PTORequest": "Cerere Concediu"
   },
   "Tooltips": {
     "Logout": "Iesire",
     "HidePassword": "Ascunde parola",
     "ShowPassword": "Arata parola",
-    "Holidays": "Concedii"
+    "Holidays": "Concedii",
+    "AddEmployee": "Adauga Angajat"
   },
   "IstoricConcedii": {
     "Period": "Perioada: ",

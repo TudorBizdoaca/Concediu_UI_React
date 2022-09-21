@@ -19,14 +19,16 @@
     "Settings": "Settings",
     "Privacy": "Privacy",
     "Security": "Security",
-    "Vacations": "Vacations"
+    "PTORequest": "Leave Request"
   },
   "Tooltips": {
     "Logout": "Logout",
     "HidePassword": "Hide password",
     "ShowPassword": "Show password",
-    "Holidays": "Holidays"
+    "Holidays": "Holidays",
+    "AddEmployee": "Add Employee"
   },
+  "EmployeeForm": {},
   "IstoricConcedii": {
     "Period": "Period: ",
     "Type": "Type: ",

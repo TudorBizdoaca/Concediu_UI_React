@@ -6,29 +6,28 @@ const gridStyle = theme => {
     card: {
       transformStyle: 'preserve-3d',
       boxShadow: '0 8px 8px 0 rgba(0,0,0,0.2)',
-      background: 'rgb(254, 239, 198)',
-      transition: '0.3s',
+      background: '#ffffff',
+      transition: '0.5s',
       margin: '10px 0px',
       borderRadius: '10px',
       padding: '2%',
       '&:hover': {
-        boxShadow: '0 8px 26px 0 rgba(0,0,0,0.2)',
         cursor: 'pointer',
         transform: 'rotateY(180deg)',
         transition: 'transform 0.5s'
       }
     },
-    lblRespingere: {
-      backfaceVisibility: 'hidden',
-      transform: 'rotateY(180deg)'
-    },
     motivRespingere: {
+      position: 'absolute',
+      fontSize: '1.2rem',
       backfaceVisibility: 'hidden',
-      transform: 'rotateY(180deg)'
+      transform: 'rotateY(180deg)',
+      transformOrigin: '220%'
     },
     lblTip: {
       fontSize: '1.2rem',
-      backfaceVisibility: 'hidden'
+      backfaceVisibility: 'hidden',
+      paddingBottom: '0.5%'
     },
     tipConcediu: {
       fontSize: '1.2rem',
@@ -36,17 +35,17 @@ const gridStyle = theme => {
     },
     lblInlocuitor: {
       fontSize: '1.2rem',
-      backfaceVisibility: 'hidden'
+      backfaceVisibility: 'hidden',
+      paddingBottom: '0.5%'
     },
     inlocuitor: {
       fontSize: '1.2rem',
-      // gridColumn: 2,
-      // gridRow: 2,
       backfaceVisibility: 'hidden'
     },
     lblPerioada: {
       fontSize: '1.2rem',
-      backfaceVisibility: 'hidden'
+      backfaceVisibility: 'hidden',
+      paddingBottom: '0.5%'
     },
     perioada: {
       fontSize: '1.2rem',
@@ -54,7 +53,8 @@ const gridStyle = theme => {
     },
     lblStare: {
       backfaceVisibility: 'hidden',
-      fontSize: '1.2rem'
+      fontSize: '1.2rem',
+      paddingBottom: '0.5%'
     },
     stare: {
       fontSize: '1.2rem',
