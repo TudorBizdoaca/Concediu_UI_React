@@ -17,7 +17,8 @@
     "Employees": "Employees",
     "Settings": "Settings",
     "Privacy": "Privacy",
-    "Security": "Security"
+    "Security": "Security",
+    "PTORequest": "Leave Request"
   },
   "Tooltips": {
     "Logout": "Logout",

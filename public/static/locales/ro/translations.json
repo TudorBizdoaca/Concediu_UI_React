@@ -9,7 +9,8 @@
     "Employees": "Angajati",
     "Settings": "Setari",
     "Privacy": "Confidentialitate",
-    "Security": "Securitate"
+    "Security": "Securitate",
+    "PTORequest": "Cerere Concediu"
   },
   "Tooltips": {
     "Logout": "Iesire",
