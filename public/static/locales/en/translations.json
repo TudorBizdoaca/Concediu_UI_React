@@ -25,8 +25,10 @@
     "Logout": "Logout",
     "HidePassword": "Hide password",
     "ShowPassword": "Show password",
-    "Holidays": "Holidays"
+    "Holidays": "Holidays",
+    "AddEmployee": "Add Employee"
   },
+  "EmployeeForm": {},
   "IstoricConcedii": {
     "Period": "Period: ",
     "Type": "Type: ",

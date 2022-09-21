@@ -17,7 +17,8 @@
     "Logout": "Iesire",
     "HidePassword": "Ascunde parola",
     "ShowPassword": "Arata parola",
-    "Holidays": "Concedii"
+    "Holidays": "Concedii",
+    "AddEmployee": "Adauga Angajat"
   },
   "IstoricConcedii": {
     "Period": "Perioada: ",
