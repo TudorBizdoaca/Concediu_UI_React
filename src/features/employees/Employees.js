@@ -1,34 +1,23 @@
 import React from 'react'
-import { IconCard } from '@bit/totalsoft_oss.react-mui.kit.core'
-import AccountBoxIcon from '@material-ui/icons/AccountBox'
-import EmployeesGrid from 'features/employees/EmployeesGrid'
+import EmployeesCardsList from 'features/employees/EmployeesGrid'
+import { useTranslation } from 'react-i18next'
+import { makeStyles } from '@material-ui/core/styles'
+import employeesStyle from 'features/employees/styles/employeesStyle'
+
+const useStyles = makeStyles(employeesStyle)
 
 function Employees() {
-  // var employee = {
-  //   avatar: '',
-  //   lastName: 'Chirita',
-  //   firstName: 'Alberto',
-  //   phone: '0727123456',
-  //   email: 'alberto.chirita@totalsoft.ro'
-  // }
-  var employees = [
-    {
-      avatar: '',
-      lastName: 'Chirita',
-      firstName: 'Alberto',
-      phone: '0727123456',
-      email: 'alberto.chirita@totalsoft.ro'
-    },
-    {
-      avatar: '',
-      lastName: 'Bizdoaca',
-      firstName: 'Tudor',
-      phone: '0737654321',
-      email: 'tudor.bizdoaca@totalsoft.ro'
-    }
-  ]
+  const { t } = useTranslation()
+  const classes = useStyles()
 
-  return <IconCard icon={AccountBoxIcon} iconColor='blue' title='Employees' content={<EmployeesGrid />} />
+  return (
+    <div className={classes.page}>
+      <div className={classes.pageHeader}>
+        <h1 className={classes.title}>Colegii mei</h1>
+      </div>
+      <EmployeesCardsList />
+    </div>
+  )
 }
 
 export default Employees

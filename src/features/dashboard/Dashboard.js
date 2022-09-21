@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { Typography, Grid } from '@material-ui/core'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 
+
 function Dashboard() {
   const addToast = useToast()
   addToast('Welcome', 'success')
@@ -12,5 +13,6 @@ function Dashboard() {
     </Fragment>
   )
 }
+
 
 export default Dashboard

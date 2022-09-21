@@ -14,6 +14,7 @@
   "Forbidden": "Not allowed to see this page!",
   "NavBar": {
     "Dashboard": "Dashboard",
+    "HolidayHistory": "Holiday History",
     "Employees": "Employees",
     "Settings": "Settings",
     "Privacy": "Privacy",
@@ -23,7 +24,14 @@
   "Tooltips": {
     "Logout": "Logout",
     "HidePassword": "Hide password",
-    "ShowPassword": "Show password"
+    "ShowPassword": "Show password",
+    "Holidays": "Holidays"
+  },
+  "IstoricConcedii": {
+    "Period": "Period: ",
+    "Type": "Type: ",
+    "Substitute": "Substitute: ",
+    "ReasonForRejection": "Reason for rejection: "
   },
   "Dialog": {
     "Yes": "Yes",
@@ -54,5 +62,29 @@
       "MinCharacters": "The length must be greater than {{min}}",
       "Unique": "The value of {{selector}} must be unique"
     }
+  },
+  "Employees": {
+    "Avatar": "Avatar",
+    "LastName": "Last Name",
+    "FirstName": "First Name",
+    "Email": "Email",
+    "Phone": "Phone",
+    "IdentifierNumber": "Identifier Number",
+    "BirthDate": "Birth Date",
+    "HireDate": "Hire Date",
+    "VacationDays": "Vacation Days"
+  },
+
+  "VacationsContainer": {
+    "Vacations": "Vacations",
+    "Name": "Name",
+    "Manager": "Manager",
+    "Vacations Type": "Vacations Type",
+    "Replacement": "Replacement",
+    "Starting Date": "Starting Date",
+    "Ending Date": "Ending Date",
+    "State": "State",
+    "Reason": "Reason",
+    "Modify": "Modify"
   }
 }

@@ -1,70 +1,77 @@
-import React from 'react'
+import React, { useReducer } from 'react'
+import { Grid } from '@material-ui/core'
+import EmployeeCard from 'features/employees/EmployeeCard'
+import Pagination from '@material-ui/lab/Pagination'
+import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
-import Typography from '@material-ui/core/Typography'
-import ButtonBase from '@material-ui/core/ButtonBase'
+import employeesGridStyle from 'features/employees/styles/employeesGridStyle'
+import dataEmployees from 'features/employees/data/dataEmployees'
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
-  },
-  paper: {
-    padding: theme.spacing(2),
-    margin: 'auto',
-    maxWidth: 500
-  },
-  image: {
-    width: 128,
-    height: 128
-  },
-  img: {
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%'
+const useStyles = makeStyles(employeesGridStyle)
+
+const employees = dataEmployees
+
+const initialState = {
+  results: [],
+  query: '',
+  totalItems: 26,
+  startIndex: 0,
+  page: 1
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'update':
+      return {}
+    case 'query':
+      return {}
+    case 'pagination':
+      return {
+        ...state,
+        page: action.page,
+        startIndex: (action.page - 1) * 20
+      }
+    default:
+      throw new Error()
   }
-}))
+}
 
-function EmployeesGrid() {
+function EmployeesCardsList() {
+  const { t } = useTranslation()
   const classes = useStyles()
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  var displayedItems = 9
+  var totalPages = Math.ceil(state.totalItems / displayedItems)
+  var startIndex = (state.page - 1) * displayedItems
+  var displayedRange = startIndex + 1 + '-' + (startIndex + 9)
+
+  const handleChange = (event, value) => {
+    dispatch({ type: 'pagination', page: value })
+  }
 
   return (
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <Grid container spacing={2}>
-          <Grid item>
-            <ButtonBase className={classes.image}>
-              <img className={classes.img} alt='complex' src='/static/images/grid/complex.jpg' />
-            </ButtonBase>
-          </Grid>
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction='column' spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom variant='subtitle1'>
-                  Standard license
-                </Typography>
-                <Typography variant='body2' gutterBottom>
-                  Full resolution 1920x1080 • JPEG
-                </Typography>
-                <Typography variant='body2' color='textSecondary'>
-                  ID: 1030114
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography variant='body2' style={{ cursor: 'pointer' }}>
-                  Remove
-                </Typography>
-              </Grid>
-            </Grid>
-            <Grid item>
-              <Typography variant='subtitle1'>$19.00</Typography>
-            </Grid>
-          </Grid>
+    <Grid className={classes.cardsGrid} container spacing={4}>
+      {employees.map((employee, index) => (
+        <Grid item sm={'auto'} key={index}>
+          <EmployeeCard employee={employee} />
         </Grid>
-      </Paper>
-    </div>
+      ))}
+      <Grid className={classes.pagination} item sm={12}>
+        <div className={classes.details}>
+          Showing <span>{displayedRange}</span> from <span>{state.totalItems}</span> employees
+        </div>
+        <Pagination
+          classes={{ ul: classes.ul }}
+          page={state.page}
+          count={totalPages}
+          onChange={handleChange}
+          variant='outlined'
+          shape='rounded'
+        />
+      </Grid>
+    </Grid>
   )
 }
 
-export default EmployeesGrid
+export default EmployeesCardsList
