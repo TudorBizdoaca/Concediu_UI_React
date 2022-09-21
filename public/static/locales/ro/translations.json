@@ -11,7 +11,7 @@
     "Settings": "Setari",
     "Privacy": "Confidentialitate",
     "Security": "Securitate",
-    "Vacations": "Concedii"
+    "PTORequest": "Cerere Concediu"
   },
   "Tooltips": {
     "Logout": "Iesire",
@@ -66,5 +66,18 @@
     "BirthDate": "Data Nastere",
     "HireDate": "Data Angajare",
     "VacationDays": "Zile Concediu"
+  },
+
+  "VacationsContainer": {
+    "Vacations": "Concedii",
+    "Name": "Nume",
+    "Manager": "Manager",
+    "Vacations Type": "Tip Concediu",
+    "Replacement": "Inlocuitor",
+    "Starting Date": "Data Inceput",
+    "Ending Date": "Data Sfarsit",
+    "State": "Stare",
+    "Reason": "Motiv",
+    "Modify": "Modifica"
   }
 }

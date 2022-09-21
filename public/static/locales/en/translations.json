@@ -19,7 +19,7 @@
     "Settings": "Settings",
     "Privacy": "Privacy",
     "Security": "Security",
-    "Vacations": "Vacations"
+    "PTORequest": "Leave Request"
   },
   "Tooltips": {
     "Logout": "Logout",
@@ -75,5 +75,18 @@
     "BirthDate": "Birth Date",
     "HireDate": "Hire Date",
     "VacationDays": "Vacation Days"
+  },
+
+  "VacationsContainer": {
+    "Vacations": "Vacations",
+    "Name": "Name",
+    "Manager": "Manager",
+    "Vacations Type": "Vacations Type",
+    "Replacement": "Replacement",
+    "Starting Date": "Starting Date",
+    "Ending Date": "Ending Date",
+    "State": "State",
+    "Reason": "Reason",
+    "Modify": "Modify"
   }
 }
