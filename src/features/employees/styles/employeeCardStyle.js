@@ -5,7 +5,7 @@ const employeeCardStyle = theme => {
     card: {
       display: 'block',
       // minWidth: '300px',
-      width: '100%',
+      // width: '100%',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)',
       background: '#FFFFFF',
       borderRadius: '14px',
