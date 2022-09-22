@@ -116,7 +116,8 @@ const headerStyle = theme => {
     },
     theme: {
       backgroundColor: topBarBkColor,
-      ...themeBoxSecondaryShadow
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)'
+      // ...themeBoxSecondaryShadow
     },
     clone: {
       cursor: 'pointer',

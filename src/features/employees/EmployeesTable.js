@@ -101,7 +101,7 @@ const useStyles = makeStyles({
   }
 })
 
-function EmployeesGrid() {
+function EmployeesTable() {
   const classes = useStyles()
   const { t } = useTranslation()
 
@@ -143,4 +143,4 @@ function EmployeesGrid() {
   )
 }
 
-export default EmployeesGrid
+export default EmployeesTable
