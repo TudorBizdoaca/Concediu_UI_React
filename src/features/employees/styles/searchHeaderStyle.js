@@ -14,7 +14,8 @@ const searchHeaderStyle = theme => {
     title: {
       fontWeight: '700',
       fontSize: '34px',
-      lineHeight: '64px'
+      lineHeight: '64px',
+      color: '#202020'
     },
     headerRight: {
       display: 'flex'

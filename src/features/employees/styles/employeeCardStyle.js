@@ -19,8 +19,8 @@ const employeeCardStyle = theme => {
     },
     buttonDots: {
       position: 'absolute',
-      top: '24px',
-      right: '24px'
+      top: '14px',
+      right: '14px'
     },
     image: {
       width: '50%',

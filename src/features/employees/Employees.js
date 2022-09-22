@@ -12,6 +12,7 @@ const useStyles = makeStyles(employeesStyle)
 const employees = dataEmployees
 const totalEmployees = 26
 
+// move to reducer
 const initialState = {
   results: employees,
   query: '',

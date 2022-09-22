@@ -31,7 +31,7 @@ function EmployeeCard({ employee }) {
   }
 
   const handleViewUser = () => {
-    history.push({ pathname: '/add-employee' })
+    history.push({ pathname: `/employee/${employee.id}` })
   }
 
   return (
