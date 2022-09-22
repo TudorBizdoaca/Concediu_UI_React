@@ -1,5 +1,3 @@
-import { labelStyle } from './mixins'
-
 const formStyle = theme => {
   return {
     container: {
@@ -28,11 +26,19 @@ const formStyle = theme => {
       color: '#C7C7C7',
       letterSpacing: '1px'
     },
-    TNume: {
+    textfield: {
       '& .MuiOutlinedInput-root': {
         borderRadius: '14px',
         height: '40px',
-        width: '250px'
+        width: '250px',
+        '& input[type=number]::-webkit-outer-spin-button': {
+          '-webkit-appearance': 'none',
+          margin: 0
+        },
+        '& input[type=number]::-webkit-inner-spin-button': {
+          '-webkit-appearance': 'none',
+          margin: 0
+        }
       }
     },
     datepicker: {

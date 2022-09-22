@@ -1,13 +1,12 @@
 import React from 'react'
-import ListIcon from '@material-ui/icons/List'
-import { IconCard } from '@bit/totalsoft_oss.react-mui.kit.core'
+
 import HolidayComponent from 'components/holiday/HolidayComponent'
 import { useTranslation } from 'react-i18next'
-import { makeStyles } from '@material-ui/core'
-import holidayIcon from 'assets/jss/components/holidayIconCard'
+import { Grid, makeStyles } from '@material-ui/core'
+import cardContainer from 'assets/jss/components/cardContainer'
 function HolidayHistoryContainer() {
   const { t } = useTranslation()
-  const useStyles = makeStyles(holidayIcon)
+  const useStyles = makeStyles(cardContainer)
   const classes = useStyles()
   const holidays = [
     {
@@ -28,13 +27,10 @@ function HolidayHistoryContainer() {
     }
   ]
   return (
-    <IconCard
-      customCardClass={classes.card}
-      iconColor='purple'
-      icon={ListIcon}
-      title={t('Tooltips.Holidays')}
-      content={<HolidayComponent holidays={holidays} />}
-    />
+    <Grid item container xs={12} className={classes.card}>
+      <h1 className={classes.title}>{t('Tooltips.Holidays')}</h1>
+      <HolidayComponent holidays={holidays} />
+    </Grid>
   )
 }
 

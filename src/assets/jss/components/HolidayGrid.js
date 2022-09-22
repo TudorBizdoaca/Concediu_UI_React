@@ -22,7 +22,7 @@ const gridStyle = theme => {
       fontSize: '1.2rem',
       backfaceVisibility: 'hidden',
       transform: 'rotateY(180deg)',
-      transformOrigin: '220%'
+      transformOrigin: '200%'
     },
     lblTip: {
       fontSize: '1.2rem',

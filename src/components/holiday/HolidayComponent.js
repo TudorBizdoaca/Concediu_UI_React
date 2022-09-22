@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import gridStyle from 'assets/jss/components/HolidayGrid'
 import { makeStyles } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
+
 function HolidayComponent(props) {
   const { holidays } = props
   const useStyles = makeStyles(gridStyle)

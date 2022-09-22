@@ -28,7 +28,16 @@
     "Holidays": "Holidays",
     "AddEmployee": "Add Employee"
   },
-  "EmployeeForm": {},
+  "EmployeeForm": {
+    "Name": "LAST NAME",
+    "Surname": "FIRST NAME",
+    "Cnp": "IDENTIFIER NUMBER",
+    "DataAngajare": "DATE OF EMPLOYMENT",
+    "IdSeries": "ID SERIES",
+    "IdNo": "ID NUMBER",
+    "Renunta": "Cancel",
+    "Salveaza": "Save"
+  },
   "IstoricConcedii": {
     "Period": "Period: ",
     "Type": "Type: ",
