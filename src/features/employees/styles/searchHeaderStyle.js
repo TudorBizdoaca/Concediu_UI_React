@@ -68,6 +68,7 @@ const searchHeaderStyle = theme => {
       marginLeft: '14px',
       backgroundColor: '#6418c3',
       color: 'white',
+      fontWeight: 700,
       borderRadius: '14px',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)',
       textTransform: 'capitalize',
