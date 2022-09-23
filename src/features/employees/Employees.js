@@ -6,6 +6,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import employeesStyle from 'features/employees/styles/employeesStyle'
 import dataEmployees from 'features/employees/data/dataEmployees'
 import { reducer } from './reducer'
+import { useQueryWithErrorHandling } from 'hooks/errorHandling'
+import { GET_EMPLOYEES } from './queries'
 
 const useStyles = makeStyles(employeesStyle)
 
@@ -14,7 +16,7 @@ const totalEmployees = 26
 
 // move to reducer
 const initialState = {
-  results: employees,
+  results: [],
   query: '',
   totalItems: totalEmployees,
   startIndex: 0,
@@ -26,6 +28,8 @@ function Employees() {
 
   const [init, setInit] = useState(true)
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  const { data, loading } = useQueryWithErrorHandling(GET_EMPLOYEES, { variables: { position: state.startIndex } })
 
   const searchInputRef = useRef('')
 
@@ -49,14 +53,14 @@ function Employees() {
   }, [state.query, state.startIndex, /*sendGetRequest,*/ init])
 
   useEffect(() => {
-    if (employees && totalEmployees && !init) {
+    if (data && !loading) {
       dispatch({
         type: 'update',
-        results: employees,
+        results: data?.employeesData,
         totalItems: totalEmployees
       })
     }
-  }, [employees, totalEmployees, init])
+  }, [data, loading])
 
   return (
     <div className={classes.page}>

@@ -58,7 +58,7 @@ function EmployeeCard({ employee }) {
       <CardMedia className={classes.image} component='img' alt='User' height='140' image={employee.avatar} title='User' />
       <CardContent className={classes.cardContent}>
         <Typography className={classes.name} gutterBottom variant='h5' component='h2'>
-          {employee.lastName} {employee.firstName}
+          {employee.nume} {employee.prenume}
         </Typography>
         <Typography className={classes.job} component='p'>
           {employee.job}
@@ -66,7 +66,7 @@ function EmployeeCard({ employee }) {
         <div className={classes.contact}>
           <div className={classes.contactItem}>
             <img className={classes.contactIcon} alt='iconPhone' src={iconPhone} />
-            <span className={classes.contactText}>{employee.phone}</span>
+            <span className={classes.contactText}>{employee.nrTelefon}</span>
           </div>
           <div>
             <img className={classes.contactIcon} alt='iconPhone' src={iconEmail} />
