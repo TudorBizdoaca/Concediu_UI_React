@@ -66,7 +66,7 @@ const userMenuStyle = theme => {
       overflow: 'hidden',
       float: 'left',
       zIndex: '5',
-      borderRadius: '50%',
+      borderRadius: '14px',
       verticalAlign: 'middle',
       border: '0',
       ...boxShadow
@@ -105,7 +105,7 @@ const userMenuStyle = theme => {
       paddingRight: '10px',
       transition: 'all 300ms linear',
       margin: '0px 15px',
-      borderRadius: '3px',
+      borderRadius: '14px',
       position: 'relative',
       display: 'flex',
       padding: '10px 15px',
@@ -167,7 +167,7 @@ const userMenuStyle = theme => {
       padding: '0px',
       transition: 'all 300ms linear',
       margin: '10px 15px 0',
-      borderRadius: '3px',
+      borderRadius: '14px',
       position: 'relative',
       backgroundColor: 'transparent',
       ...defaultFont,
@@ -185,7 +185,7 @@ const userMenuStyle = theme => {
     menuActiveColor: {
       '&,&:hover,&:focus': {
         color: menuActiveColor,
-        background: ({ withGradient }) => (withGradient ? menuActiveBk : menuActiveBkColor)
+        background: '#DFA625'
       }
     }
   }

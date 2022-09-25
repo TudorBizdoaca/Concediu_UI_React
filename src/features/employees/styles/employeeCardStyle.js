@@ -9,6 +9,7 @@ const employeeCardStyle = theme => {
       // width: '100%',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)',
       background: '#FFFFFF',
+      // border: '1px solid rgba(0, 0, 0, 0.23)',
       borderRadius: '14px',
       margin: 'auto',
       padding: '24px',

@@ -12,6 +12,8 @@ import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles'
 import employeeCardStyle from 'features/employees/styles/employeeCardStyle'
 
+import avatarTest from '../../assets/img/default-avatar.jpg'
+
 const useStyles = makeStyles(employeeCardStyle)
 
 function EmployeeCard({ employee }) {
@@ -55,7 +57,15 @@ function EmployeeCard({ employee }) {
       >
         <MenuItem onClick={handleViewUser}>View Profile</MenuItem>
       </Menu>
-      <CardMedia className={classes.image} component='img' alt='User' height='140' image={employee.avatar} title='User' />
+      <CardMedia
+        className={classes.image}
+        component='img'
+        alt='User'
+        height='140'
+        image={employee.avatar}
+        // image={avatarTest}
+        title='User'
+      />
       <CardContent className={classes.cardContent}>
         <Typography className={classes.name} gutterBottom variant='h5' component='h2'>
           {employee.nume} {employee.prenume}
