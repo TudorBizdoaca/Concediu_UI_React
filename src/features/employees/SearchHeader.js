@@ -13,11 +13,10 @@ const useStyles = makeStyles(searchHeaderStyle)
 function SearchHeader({ searchHandler, searchInputRef }) {
   const { t } = useTranslation()
   const classes = useStyles()
-
   const history = useHistory()
 
   const handleClick = () => {
-    history.push('')
+    history.push({ pathname: '/add-employee' })
   }
 
   return (
@@ -42,7 +41,6 @@ function SearchHeader({ searchHandler, searchInputRef }) {
         <Button
           className={classes.button}
           variant='contained'
-          color='#6418c3'
           size='large'
           startIcon={<img className={classes.icon} alt='iconAddUser' src={iconAddUser} />}
           onClick={handleClick}

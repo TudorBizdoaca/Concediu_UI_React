@@ -2,6 +2,7 @@
 // // // Header styles
 // #############################
 
+import { alpha } from '@material-ui/core'
 import styles from 'assets/jss/styles'
 
 const headerStyle = theme => {
@@ -110,13 +111,23 @@ const headerStyle = theme => {
       display: 'block',
       color: '#555555'
     },
+    iconButton: {
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.06)',
+      '&:hover': {
+        boxShadow: 'none',
+        backgroundColor: alpha('#6418c3', 0.05)
+      },
+      '&:focus': {
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.06)'
+      }
+    },
     sidebarMiniIcon: {
       width: '20px',
       height: '17px'
     },
     theme: {
       backgroundColor: topBarBkColor,
-      ...themeBoxSecondaryShadow
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)'
     },
     clone: {
       cursor: 'pointer',

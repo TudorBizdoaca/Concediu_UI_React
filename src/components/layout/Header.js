@@ -54,11 +54,11 @@ function Header({ drawerOpen, handleDrawerToggle }) {
         <Hidden smDown>
           <div className={classes.sidebarMinimize}>
             {!drawerOpen ? (
-              <IconButton color='primaryNoBackground' onClick={handleDrawerToggle}>
+              <IconButton className={classes.iconButton} color='primaryNoBackground' onClick={handleDrawerToggle}>
                 <ViewList fontSize='small' />
               </IconButton>
             ) : (
-              <IconButton color='primaryNoBackground' onClick={handleDrawerToggle}>
+              <IconButton className={classes.iconButton} color='primaryNoBackground' onClick={handleDrawerToggle}>
                 <MoreVert fontSize='small' />
               </IconButton>
             )}
@@ -77,7 +77,7 @@ function Header({ drawerOpen, handleDrawerToggle }) {
           )}
           <div className={classes.w100} ref={headerRef}></div>
           <div className={classes.appResponsive}>
-            <IconButton color='themeWithBackground' aria-label='open drawer' onClick={handleDrawerToggle}>
+            <IconButton className={classes.iconButton} color='themeWithBackground' aria-label='open drawer' onClick={handleDrawerToggle}>
               <Menu fontSize='small' />
             </IconButton>
           </div>

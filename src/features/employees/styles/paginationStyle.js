@@ -25,12 +25,15 @@ const paginationStyle = theme => {
     },
     ul: {
       '& .MuiPaginationItem-root': {
-        color: '#6418c3',
+        color: '#DFA625',
+        background: '#fff',
+        border: 'none',
         borderRadius: '10px',
         boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)',
         '&.Mui-selected': {
-          background: '#6418c3',
-          color: 'white'
+          background: '#DFA625',
+          color: 'white',
+          border: 'none'
         }
       }
     }

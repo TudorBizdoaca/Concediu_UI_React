@@ -1,4 +1,5 @@
-import background from 'assets/img/welcome.png'
+import { alpha } from '@material-ui/core'
+import background from 'assets/img/welcome.jpg'
 
 const publicMainStyle = theme => {
   return {
@@ -12,11 +13,13 @@ const publicMainStyle = theme => {
       position: 'fixed'
     },
     loginForm: {
-      background: 'white',
+      background: '#333',
       display: 'block',
-      boxShadow: '0 1px 10px rgba(0,0,0,0.3)',
+      borderRadius: '14px',
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.06)',
       position: 'relative',
-      marginTop: 'calc(50vh - 113px)'
+      marginTop: 'calc(50vh - 300px)',
+      padding: '24px'
     },
     paper: {
       marginTop: theme.spacing(2),
@@ -27,13 +30,42 @@ const publicMainStyle = theme => {
       boxSizing: 'border-box'
     },
     logo: {
-      margin: theme.spacing(1),
-      minHeight: '100px',
-      maxHeight: '100px'
+      width: '55%'
     },
     login: {
-      margin: theme.spacing(3, 0, 2),
-      textTransform: 'none'
+      padding: '14px 24px',
+      width: '50%',
+      backgroundColor: '#DFA625',
+      color: 'white',
+      fontWeight: 700,
+      borderRadius: '14px',
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)',
+      textTransform: 'capitalize',
+      '&:hover': {
+        backgroundColor: alpha('#DFA625', 0.7),
+        boxShadow: 'none'
+      }
+    },
+    loginInputs: {
+      display: 'flex',
+      flexDirection: 'column',
+      marginTop: '64px',
+      marginBottom: '48px',
+      width: '60%'
+    },
+    loginInputsItem: {
+      marginBottom: '24px'
+    },
+    loginInputsItemColor: {
+      backgroundColor: 'white',
+      borderRadius: '14px',
+      '&:hover, &:focus, &::selection': {
+        color: 'black',
+        backgroundColor: 'white'
+      }
+    },
+    error: {
+      marginTop: '14px'
     },
     buttonFooter: {
       height: '32px',

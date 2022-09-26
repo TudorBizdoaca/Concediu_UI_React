@@ -14,7 +14,8 @@ const searchHeaderStyle = theme => {
     title: {
       fontWeight: '700',
       fontSize: '34px',
-      lineHeight: '64px'
+      lineHeight: '64px',
+      color: '#202020'
     },
     headerRight: {
       display: 'flex'
@@ -26,7 +27,7 @@ const searchHeaderStyle = theme => {
       backgroundColor: '#FFFFFF',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)',
       '&:hover': {
-        backgroundColor: alpha('#6418c3', 0.05)
+        backgroundColor: alpha('#DFA625', 0.05)
       },
       marginLeft: '24px',
       width: '100%',
@@ -66,13 +67,14 @@ const searchHeaderStyle = theme => {
     },
     button: {
       marginLeft: '14px',
-      backgroundColor: '#6418c3',
+      backgroundColor: '#DFA625',
       color: 'white',
+      fontWeight: 700,
       borderRadius: '14px',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)',
       textTransform: 'capitalize',
       '&:hover': {
-        backgroundColor: alpha('#6418c3', 0.7),
+        backgroundColor: alpha('#DFA625', 0.7),
         boxShadow: 'none'
       }
     }

@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 import PropTypes from 'prop-types'
-import { Button } from '@material-ui/core'
+// import { Button } from '@material-ui/core'
 import VacationRowComponent from './VacationRowComponent'
 
 const useStyles = makeStyles({
@@ -28,13 +28,13 @@ const StyledTableCell = withStyles(theme => ({
   }
 }))(TableCell)
 
-const StyledTableRow = withStyles(theme => ({
-  root: {
-    '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover
-    }
-  }
-}))(TableRow)
+// const StyledTableRow = withStyles(theme => ({
+//   root: {
+//     '&:nth-of-type(odd)': {
+//       backgroundColor: theme.palette.action.hover
+//     }
+//   }
+// }))(TableRow)
 
 function VacationsComponent(props) {
   const classes = useStyles()
@@ -52,7 +52,7 @@ function VacationsComponent(props) {
             <StyledTableCell>Ending Date</StyledTableCell>
             <StyledTableCell>State</StyledTableCell>
             <StyledTableCell>Reason</StyledTableCell>
-            <StyledTableCell>Modify</StyledTableCell>
+            <StyledTableCell>Details</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>

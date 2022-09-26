@@ -4,10 +4,12 @@ const employeeCardStyle = theme => {
   return {
     card: {
       display: 'block',
-      // minWidth: '300px',
+      position: 'relative',
+      minWidth: '300px',
       // width: '100%',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)',
       background: '#FFFFFF',
+      // border: '1px solid rgba(0, 0, 0, 0.23)',
       borderRadius: '14px',
       margin: 'auto',
       padding: '24px',
@@ -15,6 +17,11 @@ const employeeCardStyle = theme => {
     },
     cardContent: {
       padding: '0 0 0 0'
+    },
+    buttonDots: {
+      position: 'absolute',
+      top: '14px',
+      right: '14px'
     },
     image: {
       width: '50%',
@@ -32,7 +39,7 @@ const employeeCardStyle = theme => {
     },
     job: {
       marginBottom: '24px',
-      fontWeight: 400,
+      fontWeight: 500,
       fontSize: '14px',
       lineHeight: '20px',
       color: '#A5A5A5'

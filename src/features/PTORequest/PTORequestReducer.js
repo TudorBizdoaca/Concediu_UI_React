@@ -4,20 +4,24 @@ export const initialState = {
   dataInceput: new Date(),
   dataFinal: new Date(),
   totalZileDisponibile: 21,
-  totalZileSolicitate: 0
+  totalZileSolicitate: 0,
+  idTipConcediu: 0,
+  idInlocuitor: 0,
+  comentarii: ''
 }
 export function reducer(state, action) {
   var dayOfWeek = state.dataFinal.getDay()
   switch (action.type) {
-    case 'datePicker1':
-      state.dataInceput = action.e
-      state.totalZileSolicitate = differenceInBusinessDays(state.dataFinal, state.dataInceput)
-      if (dayOfWeek != 6 && dayOfWeek != 0) state.totalZileSolicitate = state.totalZileSolicitate + 1
+    case 'changeHandler':
+      state[action.stateField] = action.onChangeParam //state update
+
+      //logica pentru zileConcediuSolicitate
+
+      if (action.stateField == 'dataInceput' || action.stateField == 'dataFinal')
+        state.totalZileSolicitate = differenceInBusinessDays(state.dataFinal, state.dataInceput)
+      if (dayOfWeek != 6 && dayOfWeek != 0 && (action.stateField == 'dataInceput' || action.stateField == 'dataFinal'))
+        state.totalZileSolicitate = state.totalZileSolicitate + 1
       return { ...state }
-    case 'datePicker2':
-      state.totalZileSolicitate = differenceInBusinessDays(action.e, state.dataInceput)
-      if (dayOfWeek != 6 && dayOfWeek != 0) state.totalZileSolicitate = state.totalZileSolicitate + 1
-      return { ...state, dataFinal: action.e }
     default:
       throw new Error()
   }
