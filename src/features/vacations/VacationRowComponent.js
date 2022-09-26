@@ -1,17 +1,19 @@
 import React from 'react'
 import { withStyles, makeStyles } from '@material-ui/core/styles'
-import TableBody from '@material-ui/core/TableBody'
+// import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableRow from '@material-ui/core/TableRow'
 import PropTypes from 'prop-types'
 import { Button } from '@material-ui/core'
+import { useHistory } from 'react-router'
+import DetailsComponent from './DetailsComponent'
 
-const useStyles = makeStyles({
-  filters: {
-    margin: '25px 0 25px 0',
-    borderRadius: 14
-  }
-})
+// const useStyles = makeStyles({
+//   filters: {
+//     margin: '25px 0 25px 0',
+//     borderRadius: 14
+//   }
+// })
 
 const StyledTableCell = withStyles(theme => ({
   head: {
@@ -33,6 +35,7 @@ const StyledTableRow = withStyles(theme => ({
 
 function VacationRowComponent(props) {
   const { row } = props
+  const history = useHistory()
   return (
     <StyledTableRow>
       <StyledTableCell>{row.name}</StyledTableCell>
@@ -44,8 +47,8 @@ function VacationRowComponent(props) {
       <StyledTableCell>{row.state}</StyledTableCell>
       <StyledTableCell>{row.reason}</StyledTableCell>
       <StyledTableCell>
-        <Button variant='contained' color='primary'>
-          Modify
+        <Button variant='contained' color='primary' onClick={() => history.push({ pathname: `/vacations/details/${row.id}` })}>
+          Details
         </Button>
       </StyledTableCell>
     </StyledTableRow>
@@ -53,7 +56,7 @@ function VacationRowComponent(props) {
 }
 
 VacationRowComponent.propTypes = {
-  row: PropTypes.array.isRequired
+  row: PropTypes.object.isRequired
 }
 
 export default VacationRowComponent

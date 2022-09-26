@@ -37,7 +37,7 @@ const menuStyle = theme => {
       paddingRight: '10px',
       transition: 'all 300ms linear',
       margin: '10px 15px 0',
-      borderRadius: '3px',
+      borderRadius: '14px',
       position: 'relative',
       display: 'flex',
       alignItems: 'center',
@@ -54,7 +54,7 @@ const menuStyle = theme => {
       },
       '&:focus': {
         outline: 'none',
-        backgroundColor: props => (props.isSubMenu ? 'transparent' : theme.palette.sideMenu.focusBgColor),
+        backgroundColor: '#DFA625',
         boxShadow: 'none'
       },
       '&,&:focus': {
@@ -96,7 +96,7 @@ const menuStyle = theme => {
     menuActiveColor: {
       '&,&:hover,&:focus': {
         color: menuActiveColor,
-        background: ({ withGradient }) => (withGradient ? menuActiveBk : menuActiveBkColor)
+        background: '#DFA625'
       }
     },
     paddingLeft: {

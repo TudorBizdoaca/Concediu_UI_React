@@ -17,7 +17,18 @@
     "Logout": "Iesire",
     "HidePassword": "Ascunde parola",
     "ShowPassword": "Arata parola",
-    "Holidays": "Concedii"
+    "Holidays": "Concedii",
+    "AddEmployee": "Adauga Angajat"
+  },
+  "EmployeeForm": {
+    "Name": "NUME",
+    "Surname": "PRENUME",
+    "Cnp": "COD NUMERIC PERSONAL",
+    "DataAngajare": "DATA ANGAJARII",
+    "IdSeries": "SERIE BULETIN",
+    "IdNo": "NUMAR BULETIN",
+    "Renunta": "Renunta",
+    "Salveaza": "Salveaza"
   },
   "IstoricConcedii": {
     "Period": "Perioada: ",

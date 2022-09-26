@@ -25,7 +25,18 @@
     "Logout": "Logout",
     "HidePassword": "Hide password",
     "ShowPassword": "Show password",
-    "Holidays": "Holidays"
+    "Holidays": "Holidays",
+    "AddEmployee": "Add Employee"
+  },
+  "EmployeeForm": {
+    "Name": "LAST NAME",
+    "Surname": "FIRST NAME",
+    "Cnp": "IDENTIFIER NUMBER",
+    "DataAngajare": "DATE OF EMPLOYMENT",
+    "IdSeries": "ID SERIES",
+    "IdNo": "ID NUMBER",
+    "Renunta": "Cancel",
+    "Salveaza": "Save"
   },
   "IstoricConcedii": {
     "Period": "Period: ",

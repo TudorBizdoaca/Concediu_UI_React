@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 import gridStyle from 'assets/jss/components/HolidayGrid'
 import { makeStyles } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
-function HolidayGrid(props) {
-  console.log('PROPS: ')
-  console.log(props.holidays)
+
+function HolidayComponent(props) {
   const { holidays } = props
   const useStyles = makeStyles(gridStyle)
   const classes = useStyles()
   const { t } = useTranslation()
+
   return (
     <Grid container direction='row' className={classes.container}>
       {holidays.map(element => (
@@ -34,7 +34,6 @@ function HolidayGrid(props) {
           <Grid item xs={3} className={classes.inlocuitor}>
             {element.Inlocuitor}
           </Grid>
-
           <Grid item xs={3} className={classes.tipConcediu}>
             {element.Tip}
           </Grid>
@@ -42,8 +41,8 @@ function HolidayGrid(props) {
             {element.Status}
           </Grid>
           {element.Status == 'Respins' ? (
-            <Grid item xs={12} className={classes.motivRespingere}>
-              {element.Status == 'Respins' ? t('IstoricConcedii.ReasonForRejection') + element.MotivRespingere : ''}
+            <Grid item className={classes.motivRespingere}>
+              {t('IstoricConcedii.ReasonForRejection') + element.MotivRespingere}
             </Grid>
           ) : (
             <Typography></Typography>
@@ -53,7 +52,7 @@ function HolidayGrid(props) {
     </Grid>
   )
 }
-HolidayGrid.propTypes = {
+HolidayComponent.propTypes = {
   holidays: PropTypes.array.isRequired
 }
-export default HolidayGrid
+export default HolidayComponent

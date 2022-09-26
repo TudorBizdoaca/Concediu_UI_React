@@ -36,7 +36,7 @@ const sidebarStyle = theme => {
       transitionDuration: '.2s, .2s, .35s',
       transitionTimingFunction: 'linear, linear, ease',
       overflowY: 'unset',
-      ...boxShadow,
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.06)',
       width: drawerWidth,
       [theme.breakpoints.up('md')]: {
         width: drawerWidth,
@@ -80,8 +80,10 @@ const sidebarStyle = theme => {
     },
     themeBackground: {
       color: menuColor,
+      // color: '#FFFFFF',
       '&:after': {
-        background: menuBkColor,
+        // background: menuBkColor,
+        background: '#000',
         opacity: menuBkOpacity
       }
     },
@@ -109,7 +111,7 @@ const sidebarStyle = theme => {
       width: drawerMiniWidth + 'px!important'
     },
     logo: {
-      padding: '15px 0px 30px 0',
+      padding: '20px 20px 0 20px',
       margin: '0',
       display: 'block',
       position: 'relative',
@@ -130,8 +132,8 @@ const sidebarStyle = theme => {
       textAlign: 'center',
       display: 'inline-block',
       maxHeight: '30px',
-      marginLeft: '22px',
-      marginRight: '18px',
+      // marginLeft: '22px',
+      // marginRight: '18px',
       marginTop: '7px',
       color: 'inherit'
     },
@@ -158,6 +160,7 @@ const sidebarStyle = theme => {
     },
     img: {
       width: '100%',
+      marginBottom: '124px',
       verticalAlign: 'middle',
       border: '0'
     },

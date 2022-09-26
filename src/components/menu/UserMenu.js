@@ -68,15 +68,11 @@ function UserMenu({ drawerOpen, avatar, language, changeLanguage, withGradient }
     ? oidcUser.profile.name.split('@')[0]
     : 'User'
   const [tenant, setTenant] = useState(
-    myTenants &&
-      oidcUser?.profile?.tid &&
-      myTenants.find(t => t.externalId.toUpperCase() === oidcUser?.profile?.tid.toUpperCase())
+    myTenants && oidcUser?.profile?.tid && myTenants.find(t => t.externalId.toUpperCase() === oidcUser?.profile?.tid.toUpperCase())
   )
   useEffect(() => {
     const localTenant =
-      myTenants &&
-      oidcUser?.profile?.tid &&
-      myTenants.find(t => t.externalId.toUpperCase() === oidcUser?.profile?.tid.toUpperCase())
+      myTenants && oidcUser?.profile?.tid && myTenants.find(t => t.externalId.toUpperCase() === oidcUser?.profile?.tid.toUpperCase())
     if (!localTenant || tenant) {
       return
     }
@@ -118,13 +114,7 @@ function UserMenu({ drawerOpen, avatar, language, changeLanguage, withGradient }
           <List className={classes.list + classes.collapseList}>
             {userMenuItems.map((userMenu, key) => {
               return (
-                <UserMenuItem
-                  key={key}
-                  userMenu={userMenu}
-                  drawerOpen={drawerOpen}
-                  activeRoute={activeRoute}
-                  withGradient={withGradient}
-                />
+                <UserMenuItem key={key} userMenu={userMenu} drawerOpen={drawerOpen} activeRoute={activeRoute} withGradient={withGradient} />
               )
             })}
             {oidcUser && (
@@ -145,12 +135,7 @@ function UserMenu({ drawerOpen, avatar, language, changeLanguage, withGradient }
             {!tenantsLoading && myTenants?.length > 1 && (
               <Tooltip disableHoverListener={drawerOpen} title={t('Tooltips.TenantList')}>
                 <ListItem className={classes.selectorItem}>
-                  <TenantSelector
-                    tenant={tenant}
-                    tenants={myTenants}
-                    changeTenant={handleTenantChange}
-                    drawerOpen={drawerOpen}
-                  />
+                  <TenantSelector tenant={tenant} tenants={myTenants} changeTenant={handleTenantChange} drawerOpen={drawerOpen} />
                 </ListItem>
               </Tooltip>
             )}{' '}

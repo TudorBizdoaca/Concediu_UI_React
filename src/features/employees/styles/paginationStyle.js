@@ -1,8 +1,8 @@
 import styles from 'assets/jss/styles'
 
-const employeesGridStyle = theme => {
+const paginationStyle = theme => {
   return {
-    cardsGrid: {
+    grid: {
       display: 'flex',
       justifyContent: 'space-around'
     },
@@ -11,8 +11,8 @@ const employeesGridStyle = theme => {
       justifyContent: 'space-between',
       alignItems: 'center',
       marginTop: '40px',
-      marginLeft: '24px',
-      marginRight: '24px',
+      marginLeft: '14px',
+      marginRight: '14px',
       '& span': {
         fontWeight: 700,
         color: 'black'
@@ -25,14 +25,19 @@ const employeesGridStyle = theme => {
     },
     ul: {
       '& .MuiPaginationItem-root': {
-        color: '#6418c3',
+        color: '#DFA625',
+        background: '#fff',
+        border: 'none',
+        borderRadius: '10px',
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)',
         '&.Mui-selected': {
-          background: '#6418c3',
-          color: 'white'
+          background: '#DFA625',
+          color: 'white',
+          border: 'none'
         }
       }
     }
   }
 }
 
-export default employeesGridStyle
+export default paginationStyle

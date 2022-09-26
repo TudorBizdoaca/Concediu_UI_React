@@ -14,10 +14,10 @@ const employeesStyle = theme => {
       fontWeight: '700',
       fontSize: '34px',
       lineHeight: '64px'
-    },
-    filters: {
-      margin: '25px 0 25px 0'
     }
+    // filters: {
+    //   margin: '25px 0 25px 0'
+    // }
   }
 }
 
