@@ -57,6 +57,9 @@ const employeeCardStyle = theme => {
       fontWeight: '600',
       fontSize: '14px',
       lineHeight: '19px'
+    },
+    hide: {
+      display: 'none'
     }
   }
 }

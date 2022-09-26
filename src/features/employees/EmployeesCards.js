@@ -7,14 +7,14 @@ import employeesCardsStyle from 'features/employees/styles/employeesCardsStyle'
 
 const useStyles = makeStyles(employeesCardsStyle)
 
-function EmployeesCards({ employees }) {
+function EmployeesCards({ employees, loading }) {
   const classes = useStyles()
 
   return (
     <Grid className={classes.cardsGrid} container spacing={4}>
       {employees.map((employee, index) => (
         <Grid item sm={'auto'} key={index}>
-          <EmployeeCard employee={employee} />
+          <EmployeeCard employee={employee} loading={loading} />
         </Grid>
       ))}
     </Grid>
@@ -22,7 +22,8 @@ function EmployeesCards({ employees }) {
 }
 
 EmployeesCards.propTypes = {
-  employees: PropTypes.array.isRequired
+  employees: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired
 }
 
 export default EmployeesCards

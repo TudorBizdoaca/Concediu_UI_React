@@ -28,7 +28,10 @@
     "IdSeries": "SERIE BULETIN",
     "IdNo": "NUMAR BULETIN",
     "Renunta": "Renunta",
-    "Salveaza": "Salveaza"
+    "Salveaza": "Salveaza",
+    "Password": "PAROLA",
+    "DataNastere": "DATA NASTERII",
+    "PhoneNo": "NUMAR DE TELEFON"
   },
   "IstoricConcedii": {
     "Period": "Perioada: ",

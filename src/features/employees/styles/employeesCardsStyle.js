@@ -3,9 +3,7 @@ import styles from 'assets/jss/styles'
 const employeesCardsStyle = theme => {
   return {
     cardsGrid: {
-      display: 'flex',
-      marginLeft: 'auto',
-      marginRight: 'auto'
+      display: 'flex'
       // justifyContent: 'space-around'
     }
   }
