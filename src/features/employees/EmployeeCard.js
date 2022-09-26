@@ -16,13 +16,15 @@ import avatarTest from '../../assets/img/default-avatar.jpg'
 
 const useStyles = makeStyles(employeeCardStyle)
 
-function EmployeeCard({ employee }) {
+function EmployeeCard({ employee, loading }) {
   const { t } = useTranslation()
   const classes = useStyles()
   const history = useHistory()
 
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
+
+  var imgURL = `data:image/*;base64,${employee.poza}`
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget)
@@ -37,59 +39,62 @@ function EmployeeCard({ employee }) {
   }
 
   return (
-    <Paper className={classes.card}>
-      <IconButton className={classes.buttonDots} aria-label='options' onClick={handleClick}>
-        <img className={classes.icon} alt='iconDots' src={iconDots} />
-      </IconButton>
-      <Menu
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        elevation={2}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'left'
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left'
-        }}
-      >
-        <MenuItem onClick={handleViewUser}>View Profile</MenuItem>
-      </Menu>
-      <CardMedia
-        className={classes.image}
-        component='img'
-        alt='User'
-        height='140'
-        image={employee.avatar}
-        // image={avatarTest}
-        title='User'
-      />
-      <CardContent className={classes.cardContent}>
-        <Typography className={classes.name} gutterBottom variant='h5' component='h2'>
-          {employee.nume} {employee.prenume}
-        </Typography>
-        <Typography className={classes.job} component='p'>
-          {employee.job}
-        </Typography>
-        <div className={classes.contact}>
-          <div className={classes.contactItem}>
-            <img className={classes.contactIcon} alt='iconPhone' src={iconPhone} />
-            <span className={classes.contactText}>{employee.nrTelefon}</span>
+    !loading && (
+      <Paper className={classes.card}>
+        <IconButton className={classes.buttonDots} aria-label='options' onClick={handleClick}>
+          <img className={classes.icon} alt='iconDots' src={iconDots} />
+        </IconButton>
+        <Menu
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          elevation={2}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'left'
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'left'
+          }}
+        >
+          <MenuItem onClick={handleViewUser}>View Profile</MenuItem>
+        </Menu>
+        <CardMedia
+          className={classes.image}
+          component='img'
+          alt='User'
+          height='140'
+          image={imgURL}
+          // image={avatarTest}
+          title='User'
+        />
+        <CardContent className={classes.cardContent}>
+          <Typography className={classes.name} gutterBottom variant='h5' component='h2'>
+            {employee.nume} {employee.prenume}
+          </Typography>
+          <Typography className={classes.job} component='p'>
+            {employee.job}
+          </Typography>
+          <div className={classes.contact}>
+            <div className={classes.contactItem}>
+              <img className={classes.contactIcon} alt='iconPhone' src={iconPhone} />
+              <span className={classes.contactText}>{employee.nrTelefon}</span>
+            </div>
+            <div>
+              <img className={classes.contactIcon} alt='iconPhone' src={iconEmail} />
+              <span className={classes.contactText}>{employee.email}</span>
+            </div>
           </div>
-          <div>
-            <img className={classes.contactIcon} alt='iconPhone' src={iconEmail} />
-            <span className={classes.contactText}>{employee.email}</span>
-          </div>
-        </div>
-      </CardContent>
-    </Paper>
+        </CardContent>
+      </Paper>
+    )
   )
 }
 
 EmployeeCard.propTypes = {
-  employee: PropTypes.object
+  employee: PropTypes.object,
+  loading: PropTypes.bool.isRequired
 }
 
 export default EmployeeCard

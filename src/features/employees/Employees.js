@@ -4,8 +4,9 @@ import EmployeesCards from 'features/employees/EmployeesCards'
 import Pagination from './Pagination'
 import { makeStyles } from '@material-ui/core/styles'
 import employeesStyle from 'features/employees/styles/employeesStyle'
-// import dataEmployees from 'features/employees/data/dataEmployees'
-import dataEmployees from './data/dataEmployees'
+import dataEmployees from 'features/employees/data/dataEmployees'
+// import dataEmployees from './data/dataEmployees'
+import loadingGif from '../../assets/img/loading.gif'
 import { reducer } from './reducer'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import { GET_EMPLOYEES } from './queries'
@@ -30,7 +31,7 @@ function Employees() {
   const [init, setInit] = useState(true)
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const { data, loading } = useQueryWithErrorHandling(GET_EMPLOYEES, { variables: { position: state.startIndex } })
+  const { data, loading } = useQueryWithErrorHandling(GET_EMPLOYEES, { variables: { position: state.startIndex, query: state.query } })
 
   const searchInputRef = useRef('')
 
@@ -66,7 +67,10 @@ function Employees() {
   return (
     <div className={classes.page}>
       <SearchHeader searchHandler={searchHandler} searchInputRef={searchInputRef} />
-      <EmployeesCards employees={dataEmployees} />
+      <div className={classes.loadingContainer}>
+        <img src={loadingGif} alt='loading' hidden={!loading} />
+      </div>
+      <EmployeesCards employees={state.results} loading={loading} />
       <Pagination state={state} pageChangeHandler={pageChangeHandler} />
     </div>
   )
