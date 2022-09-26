@@ -1,10 +1,10 @@
 import { gql } from '@apollo/client'
 
-export const USER_DATA_QUERY = gql`
-  query userData {
-    userData {
+export const TIPURI_CONCEDIU_QUERY = gql`
+  query ExampleQuery($zileConcediuId2: Int) {
+    ZileConcediu(Id: $zileConcediuId2) {
       id
-      isAdmin
+      nrZile
     }
   }
 `

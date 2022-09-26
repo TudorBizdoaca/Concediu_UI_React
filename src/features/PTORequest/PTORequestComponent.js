@@ -29,7 +29,7 @@ const Inlocuitori = [
 function PTORequestComponent(props) {
   // const [state, dispatch] = useReducer(reducer, initialState)
   const classes = useStyles()
-
+  //modifica options cu array-urile primite prin props si fa check de array.isEmpty
   return (
     <>
       {/* DataInceput: {state.DataInceput} */}
@@ -146,7 +146,7 @@ function PTORequestComponent(props) {
           />
         </Grid>
       </Grid>
-
+      {/*3. Apeleaza functia pe care ai primit-o ca prop mai sus */}
       <Button variant='contained' className={classes.ButonSalveaza} style={{ marginTop: '50px' }}>
         <p style={{ alignSelf: 'end', color: 'white', fontFamily: 'Cairo', fontWeight: 700 }}>SALVEAZA</p>
         <Save style={{ alignSelf: 'start' }}></Save>
