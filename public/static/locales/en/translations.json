@@ -36,7 +36,10 @@
     "IdSeries": "ID SERIES",
     "IdNo": "ID NUMBER",
     "Renunta": "Cancel",
-    "Salveaza": "Save"
+    "Salveaza": "Save",
+    "Password": "PASSWORD",
+    "DataNastere": "DATE OF BIRTH",
+    "PhoneNo": "PHONE NUMBER"
   },
   "IstoricConcedii": {
     "Period": "Period: ",
