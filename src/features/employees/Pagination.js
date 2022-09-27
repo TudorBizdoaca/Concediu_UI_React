@@ -22,7 +22,7 @@ function Pagination({ state, pageChangeHandler, loading }) {
       <Grid className={classes.grid} container spacing={4}>
         <Grid className={classes.pagination} item sm={12}>
           <div className={classes.details}>
-            Showing <span>{displayedRange}</span> from <span>{state.totalItems}</span> employees
+            Showing <span>{displayedRange}</span> from <span>{state.totalItems}</span> data
           </div>
           <MUIPagination
             classes={{ ul: classes.ul }}
