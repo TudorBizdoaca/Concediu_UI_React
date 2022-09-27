@@ -14,7 +14,7 @@ function HolidayComponent(props) {
   return (
     <Grid container direction='row' className={classes.container}>
       {holidays.map(element => (
-        <Grid container item xs={12} justifyContent='flex-start' alignItems='flex-start' className={classes.card} key={element.Id}>
+        <Grid container item xs={12} justifyContent='flex-start' alignItems='flex-start' className={classes.card} key={element.id}>
           <Grid item xs={3} className={classes.lblPerioada}>
             {t('IstoricConcedii.Period')}
           </Grid>
@@ -40,9 +40,9 @@ function HolidayComponent(props) {
           <Grid item xs={3} className={classes.stare}>
             {element.Status}
           </Grid>
-          {element.Status == 'Respins' ? (
+          {element.Status?.toUpperCase() === 'RESPINS' ? (
             <Grid item className={classes.motivRespingere}>
-              {t('IstoricConcedii.ReasonForRejection') + element.MotivRespingere}
+              {t('IstoricConcedii.ReasonForRejection') + element.motivRespingere}
             </Grid>
           ) : (
             <Typography></Typography>
