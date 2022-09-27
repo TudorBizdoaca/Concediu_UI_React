@@ -1,12 +1,22 @@
 export const initialState = {
-  dataAngajarii: new Date()
+  nume: '',
+  prenume: '',
+  cnp: '',
+  email: '',
+  parola: '',
+  serie: '',
+  nr: '',
+  phone: '',
+  dataAngajarii: null,
+  dataNasterii: null,
+  poza: null
 }
 
 export function reducer(state, action) {
+  const { propertyName, value } = action
   switch (action.type) {
-    case 'DateChange':
-      state.dataAngajarii = action.e
-      return { ...state }
+    case 'OnPropertyChange':
+      return { ...state, [propertyName]: value }
     default:
       throw new Error()
   }

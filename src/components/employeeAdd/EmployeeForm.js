@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React from 'react'
 import { Grid, TextField, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import formStyle from './styles/formStyle'
@@ -8,33 +8,81 @@ import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/picker
 import Button from '@material-ui/core/Button'
 import SaveIcon from '@material-ui/icons/Save'
 import Cancel from '@material-ui/icons/Cancel'
-import { reducer, initialState } from './reducer/reducer'
+
 import { useTranslation } from 'react-i18next'
 import { useHistory } from 'react-router'
-function EmployeeForm() {
+import PropTypes from 'prop-types'
+import { extractDataNastereFromCnp } from 'features/addEmployee/utils/extractDataNastereFromCnp'
+function EmployeeForm(props) {
   const useStyles = makeStyles(formStyle)
   const classes = useStyles()
-  const [state, dispatch] = useReducer(reducer, initialState)
+
   const { t } = useTranslation()
   const history = useHistory()
 
-  const handleClick = () => {
+  const { state, dispatchWrapper, handleSave } = props
+  const handleCancel = () => {
     history.push({ pathname: `/employees` })
   }
+
   return (
     <Grid container direction='row' justifyContent='flex-end' alignItems='center' className={classes.container}>
       <div className={classes.div}>
         <Grid item md={6} xs={12}>
           <Typography className={classes.label}> {t('EmployeeForm.Name')}</Typography>
-          <TextField variant='outlined' className={classes.textfield}></TextField>
+          <TextField
+            onChange={event => dispatchWrapper('nume', event.target.value)}
+            variant='outlined'
+            className={classes.textfield}
+          ></TextField>
         </Grid>
         <Grid item md={6} xs={12}>
           <Typography className={classes.label}>{t('EmployeeForm.Surname')}</Typography>
-          <TextField variant='outlined' className={classes.textfield}></TextField>
+          <TextField
+            onChange={event => dispatchWrapper('prenume', event.target.value)}
+            variant='outlined'
+            className={classes.textfield}
+          ></TextField>
+        </Grid>
+        <Grid item md={6} xs={12}>
+          <Typography className={classes.label}>EMAIL</Typography>
+          <TextField
+            onChange={event => dispatchWrapper('email', event.target.value)}
+            variant='outlined'
+            type={'email'}
+            required
+            className={classes.textfield}
+          ></TextField>
+        </Grid>
+        <Grid item md={6} xs={12}>
+          <Typography className={classes.label}>{t('EmployeeForm.Password')}</Typography>
+          <TextField
+            onChange={event => dispatchWrapper('parola', event.target.value)}
+            variant='outlined'
+            type={'password'}
+            required
+            className={classes.textfield}
+          ></TextField>
         </Grid>
         <Grid item md={6} xs={12}>
           <Typography className={classes.label}>{t('EmployeeForm.Cnp')}</Typography>
-          <TextField variant='outlined' type={'number'} className={classes.textfield}></TextField>
+          <TextField
+            onChange={event => dispatchWrapper('cnp', event.target.value)}
+            variant='outlined'
+            type={'number'}
+            required
+            className={classes.textfield}
+          ></TextField>
+        </Grid>
+        <Grid item md={6} xs={12}>
+          <Typography className={classes.label}>{t('EmployeeForm.PhoneNo')}</Typography>
+          <TextField
+            onChange={event => dispatchWrapper('phone', event.target.value)}
+            variant='outlined'
+            type={'number'}
+            required
+            className={classes.textfield}
+          ></TextField>
         </Grid>
         <Grid item md={6} xs={12}>
           <Typography className={classes.label}>{t('EmployeeForm.DataAngajare')}</Typography>
@@ -43,13 +91,36 @@ function EmployeeForm() {
               className={classes.datepicker}
               disableToolbar
               variant='inline'
-              format='dd/MM/yyyy'
+              format='MM/dd/yyyy'
               margin='normal'
               value={state.dataAngajarii}
-              onChange={e => {
-                console.log(state.dataAngajarii)
-                dispatch({ type: 'DateChange', e })
+              maxDate={new Date()}
+              minDate={state.dataNasterii}
+              onChange={event => dispatchWrapper('dataAngajarii', event)}
+              KeyboardButtonProps={{
+                'aria-label': 'change date'
               }}
+              InputProps={{
+                disableUnderline: true
+              }}
+              classes={{
+                root: classes.datepicker
+              }}
+            />
+          </MuiPickersUtilsProvider>
+        </Grid>
+        <Grid item md={6} xs={12}>
+          <Typography className={classes.label}>{t('EmployeeForm.DataNastere')}</Typography>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <KeyboardDatePicker
+              className={classes.datepicker}
+              disableToolbar
+              variant='inline'
+              format='MM/dd/yyyy'
+              margin='normal'
+              value={state.cnp.length == 13 ? extractDataNastereFromCnp(state.cnp) : new Date()}
+              disabled
+              onChange={event => dispatchWrapper('dataNasterii', event)}
               KeyboardButtonProps={{
                 'aria-label': 'change date'
               }}
@@ -64,26 +135,28 @@ function EmployeeForm() {
         </Grid>
         <Grid item md={6} xs={12}>
           <Typography className={classes.label}>{t('EmployeeForm.IdSeries')}</Typography>
-          <TextField variant='outlined' className={classes.textfield}></TextField>
+          <TextField
+            onChange={event => dispatchWrapper('serie', event.target.value)}
+            variant='outlined'
+            className={classes.textfield}
+          ></TextField>
         </Grid>
         <Grid item md={6} xs={12}>
           <Typography className={classes.label}>{t('EmployeeForm.IdNo')}</Typography>
-          <TextField variant='outlined' type={'number'} className={classes.textfield}></TextField>
+          <TextField
+            onChange={event => dispatchWrapper('nr', event.target.value)}
+            variant='outlined'
+            type={'number'}
+            className={classes.textfield}
+          ></TextField>
         </Grid>
         <Grid item md={6} xs={12}>
-          <Button variant='contained' color='primary' size='small' className={classes.button} onClick={handleClick} startIcon={<Cancel />}>
+          <Button variant='contained' color='primary' size='small' className={classes.button} onClick={handleCancel} startIcon={<Cancel />}>
             {t('EmployeeForm.Renunta')}
           </Button>
         </Grid>
         <Grid item md={6} xs={12}>
-          <Button
-            onClick={handleClick}
-            variant='contained'
-            color='primary'
-            size='small'
-            className={classes.button}
-            startIcon={<SaveIcon />}
-          >
+          <Button onClick={handleSave} variant='contained' color='primary' size='small' className={classes.button} startIcon={<SaveIcon />}>
             {t('EmployeeForm.Salveaza')}
           </Button>
         </Grid>
@@ -93,3 +166,8 @@ function EmployeeForm() {
 }
 
 export default EmployeeForm
+EmployeeForm.propTypes = {
+  dispatchWrapper: PropTypes.func.isRequired,
+  state: PropTypes.object.isRequired,
+  handleSave: PropTypes.func.isRequired
+}
