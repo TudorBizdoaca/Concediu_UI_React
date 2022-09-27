@@ -31,7 +31,9 @@
     "Salveaza": "Salveaza",
     "Password": "PAROLA",
     "DataNastere": "DATA NASTERII",
-    "PhoneNo": "NUMAR DE TELEFON"
+    "PhoneNo": "NUMAR DE TELEFON",
+    "EmpAdded": "Angajat adaugat!",
+    "InsFailed": "Inserare esuata!"
   },
   "IstoricConcedii": {
     "Period": "Perioada: ",

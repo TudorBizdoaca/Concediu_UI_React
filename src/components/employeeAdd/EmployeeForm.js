@@ -12,16 +12,18 @@ import Cancel from '@material-ui/icons/Cancel'
 import { useTranslation } from 'react-i18next'
 import { useHistory } from 'react-router'
 import PropTypes from 'prop-types'
+import { extractDataNastereFromCnp } from 'features/addEmployee/utils/extractDataNastereFromCnp'
 function EmployeeForm(props) {
   const useStyles = makeStyles(formStyle)
   const classes = useStyles()
 
   const { t } = useTranslation()
   const history = useHistory()
+
   const { state, dispatchWrapper, handleSave } = props
-  // const handleClick = () => {
-  //   history.push({ pathname: `/employees` })
-  // }
+  const handleCancel = () => {
+    history.push({ pathname: `/employees` })
+  }
 
   return (
     <Grid container direction='row' justifyContent='flex-end' alignItems='center' className={classes.container}>
@@ -92,6 +94,8 @@ function EmployeeForm(props) {
               format='MM/dd/yyyy'
               margin='normal'
               value={state.dataAngajarii}
+              maxDate={new Date()}
+              minDate={state.dataNasterii}
               onChange={event => dispatchWrapper('dataAngajarii', event)}
               KeyboardButtonProps={{
                 'aria-label': 'change date'
@@ -114,7 +118,8 @@ function EmployeeForm(props) {
               variant='inline'
               format='MM/dd/yyyy'
               margin='normal'
-              value={state.dataNasterii}
+              value={state.cnp.length == 13 ? extractDataNastereFromCnp(state.cnp) : new Date()}
+              disabled
               onChange={event => dispatchWrapper('dataNasterii', event)}
               KeyboardButtonProps={{
                 'aria-label': 'change date'
@@ -146,7 +151,7 @@ function EmployeeForm(props) {
           ></TextField>
         </Grid>
         <Grid item md={6} xs={12}>
-          <Button variant='contained' color='primary' size='small' className={classes.button} onClick={handleSave} startIcon={<Cancel />}>
+          <Button variant='contained' color='primary' size='small' className={classes.button} onClick={handleCancel} startIcon={<Cancel />}>
             {t('EmployeeForm.Renunta')}
           </Button>
         </Grid>

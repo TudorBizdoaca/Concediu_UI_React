@@ -8,7 +8,8 @@ export const initialState = {
   nr: '',
   phone: '',
   dataAngajarii: null,
-  dataNasterii: null
+  dataNasterii: null,
+  poza: null
 }
 
 export function reducer(state, action) {
