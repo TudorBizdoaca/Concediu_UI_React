@@ -1,14 +1,17 @@
 import { gql } from '@apollo/client'
 
 export const GET_EMPLOYEES = gql`
-  query EmployeesData($position: Int, $query: String) {
+  query employeesData($position: Int, $query: String) {
     employeesData(position: $position, query: $query) {
-      id
-      nume
-      prenume
-      poza
-      email
-      nrTelefon
+      listaAngajati {
+        id
+        nume
+        prenume
+        poza
+        email
+        nrTelefon
+      }
+      nrAngajati
     }
   }
 `
