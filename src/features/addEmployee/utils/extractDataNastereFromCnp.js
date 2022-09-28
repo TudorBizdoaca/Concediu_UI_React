@@ -24,8 +24,5 @@ export function extractDataNastereFromCnp(cnp) {
       zi = cnp.substring(5, 7)
       break
   }
-  console.log(luna)
-  console.log(new Date(an, luna - 1, zi))
-  console.log(format(new Date(an, luna - 1, zi), 'dd/MM/yyyy'))
   return format(new Date(an, luna - 1, zi), 'MM/dd/yyyy')
 }

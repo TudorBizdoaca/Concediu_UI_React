@@ -10,7 +10,7 @@ import searchHeaderStyle from 'features/employees/styles/searchHeaderStyle'
 
 const useStyles = makeStyles(searchHeaderStyle)
 
-function SearchHeader({ searchHandler, searchInputRef }) {
+function SearchHeader({ searchHandler, searchInputRef, permissions }) {
   const { t } = useTranslation()
   const classes = useStyles()
   const history = useHistory()
@@ -38,15 +38,17 @@ function SearchHeader({ searchHandler, searchInputRef }) {
             onChange={searchHandler}
           />
         </div>
-        <Button
-          className={classes.button}
-          variant='contained'
-          size='large'
-          startIcon={<img className={classes.icon} alt='iconAddUser' src={iconAddUser} />}
-          onClick={handleClick}
-        >
-          Adauga angajat
-        </Button>
+        {permissions && (
+          <Button
+            className={classes.button}
+            variant='contained'
+            size='large'
+            startIcon={<img className={classes.icon} alt='iconAddUser' src={iconAddUser} />}
+            onClick={handleClick}
+          >
+            Adauga angajat
+          </Button>
+        )}
       </div>
     </div>
   )
@@ -54,7 +56,8 @@ function SearchHeader({ searchHandler, searchInputRef }) {
 
 SearchHeader.propTypes = {
   searchHandler: PropTypes.func.isRequired,
-  searchInputRef: PropTypes.object.isRequired
+  searchInputRef: PropTypes.object.isRequired,
+  permissions: PropTypes.bool.isRequired
 }
 
 export default SearchHeader

@@ -1,5 +1,5 @@
 import EmployeeForm from 'components/employeeAdd/EmployeeForm'
-import React, { useReducer } from 'react'
+import React, { useReducer, useEffect } from 'react'
 import { reducer, initialState } from '../../components/employeeAdd/reducer/reducer'
 import { useTranslation } from 'react-i18next'
 import cardContainer from 'assets/jss/components/cardContainer'
@@ -7,12 +7,25 @@ import { Grid, makeStyles } from '@material-ui/core'
 import { useMutation } from '@apollo/client'
 import { POST_EMPLOYEE } from '../../components/employeeAdd/mutations'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
+import { useQueryWithErrorHandling } from 'hooks/errorHandling'
+import { GET_MANAGERI } from './queries'
 
 function AddEmployeeContainer() {
   const { t } = useTranslation()
   const useStyles = makeStyles(cardContainer)
   const classes = useStyles()
   const [state, dispatch] = useReducer(reducer, initialState)
+  const { data: dataManager, loading } = useQueryWithErrorHandling(GET_MANAGERI)
+
+  useEffect(() => {
+    if (dataManager && !loading) {
+      dispatch({
+        type: 'manageri',
+        results: dataManager?.getManageri
+      })
+    } else console.log(dataManager)
+  }, [dataManager, loading])
+
   const dispatchWrapper = (propertyName, value) => {
     dispatch({ type: 'OnPropertyChange', propertyName, value })
   }
@@ -44,7 +57,8 @@ function AddEmployeeContainer() {
           no: state.nr,
           nrTelefon: state.phone,
           esteAdmin: false,
-          poza: pozaI
+          poza: pozaI,
+          managerId: state.managerId
         }
       }
     }).then(resp => (insertDone = resp.data.createUserData))

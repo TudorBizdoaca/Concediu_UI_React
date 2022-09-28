@@ -8,36 +8,41 @@ import paginationStyle from 'features/employees/styles/paginationStyle'
 
 const useStyles = makeStyles(paginationStyle)
 
-function Pagination({ state, pageChangeHandler }) {
+function Pagination({ state, pageChangeHandler, loading }) {
   const { t } = useTranslation()
   const classes = useStyles()
 
-  const totalPages = Math.ceil(state.totalItems / 9)
-  const displayedRange = state.startIndex + 1 + '-' + (state.startIndex + 9)
+  const totalPages = Math.ceil(state.totalItems / 12)
+  const displayedRangeStart = state.startIndex + 1
+  const displayedRangeEnd = state.startIndex + 12 > state.totalItems ? state.totalItems : state.startIndex + 12
+  const displayedRange = displayedRangeStart + '-' + displayedRangeEnd
 
   return (
-    <Grid className={classes.grid} container spacing={4}>
-      <Grid className={classes.pagination} item sm={12}>
-        <div className={classes.details}>
-          Showing <span>{displayedRange}</span> from <span>{state.totalItems}</span> employees
-        </div>
-        <MUIPagination
-          classes={{ ul: classes.ul }}
-          page={state.page}
-          count={totalPages}
-          onChange={pageChangeHandler}
-          variant='outlined'
-          shape='rounded'
-          size='large'
-        />
+    !loading && (
+      <Grid className={classes.grid} container spacing={4}>
+        <Grid className={classes.pagination} item sm={12}>
+          <div className={classes.details}>
+            Showing <span>{displayedRange}</span> from <span>{state.totalItems}</span> data
+          </div>
+          <MUIPagination
+            classes={{ ul: classes.ul }}
+            page={state.page}
+            count={totalPages}
+            onChange={pageChangeHandler}
+            variant='outlined'
+            shape='rounded'
+            size='large'
+          />
+        </Grid>
       </Grid>
-    </Grid>
+    )
   )
 }
 
 Pagination.propTypes = {
   state: PropTypes.object.isRequired,
-  pageChangeHandler: PropTypes.func.isRequired
+  pageChangeHandler: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired
 }
 
 export default Pagination

@@ -27,10 +27,17 @@ const UserMenuItem = ({ userMenu, drawerOpen, activeRoute, withGradient }) => {
 
   const text = t(userMenu.text)
 
+  const handleClick = () => {
+    if (text === 'Logout') {
+      localStorage.removeItem('token')
+      location.reload()
+    }
+  }
+
   return (
     <Tooltip disableHoverListener={drawerOpen} title={text}>
       <ListItem className={classes.collapseItem}>
-        <NavLink to={userMenu.path} className={navLinkClasses}>
+        <NavLink to={userMenu.path} className={navLinkClasses} onClick={handleClick}>
           <ListItemIcon className={classes.itemIcon}>{userMenu.icon}</ListItemIcon>
           <ListItemText primary={text} disableTypography={true} className={itemText} />
         </NavLink>

@@ -33,7 +33,8 @@
     "DataNastere": "DATA NASTERII",
     "PhoneNo": "NUMAR DE TELEFON",
     "EmpAdded": "Angajat adaugat!",
-    "InsFailed": "Inserare esuata!"
+    "InsFailed": "Inserare esuata!",
+    "Manager": "MANAGER"
   },
   "IstoricConcedii": {
     "Period": "Perioada: ",

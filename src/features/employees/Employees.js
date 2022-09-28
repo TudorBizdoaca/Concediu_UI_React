@@ -10,34 +10,38 @@ import loadingGif from '../../assets/img/loading.gif'
 import { reducer } from './reducer'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import { GET_EMPLOYEES } from './queries'
+import useUserData from 'hooks/useUserData'
 
 const useStyles = makeStyles(employeesStyle)
 
-const employees = dataEmployees
 const totalEmployees = 26
 
-// move to reducer
+const loggedUserData = {
+  esteAdmin: true,
+  managerId: null
+}
+
 const initialState = {
   results: [],
   query: '',
-  totalItems: totalEmployees,
+  totalItems: 1,
   startIndex: 0,
   page: 1
 }
 
 function Employees() {
   const classes = useStyles()
+  const userCacheData = useUserData()
 
-  const [init, setInit] = useState(true)
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const { data, loading } = useQueryWithErrorHandling(GET_EMPLOYEES, { variables: { position: state.startIndex, query: state.query } })
+  const { data, loading } = useQueryWithErrorHandling(GET_EMPLOYEES, {
+    variables: { position: state.startIndex, query: encodeURIComponent(state.query) }
+  })
 
   const searchInputRef = useRef('')
 
   const searchHandler = () => {
-    setInit(false)
-    // sendGetRequest(searchInputRef.current.value)
     dispatch({
       type: 'query',
       query: searchInputRef.current.value
@@ -49,29 +53,23 @@ function Employees() {
   }
 
   useEffect(() => {
-    if (state.query && !init) {
-      // sendGetRequest(state.query, state.startIndex)
-    }
-  }, [state.query, state.startIndex, /*sendGetRequest,*/ init])
-
-  useEffect(() => {
     if (data && !loading) {
       dispatch({
         type: 'update',
-        results: data?.employeesData,
-        totalItems: totalEmployees
+        results: data?.employeesData.listaAngajati,
+        totalItems: data.employeesData.nrAngajati
       })
     }
   }, [data, loading])
 
   return (
     <div className={classes.page}>
-      <SearchHeader searchHandler={searchHandler} searchInputRef={searchInputRef} />
+      <SearchHeader searchHandler={searchHandler} searchInputRef={searchInputRef} permissions={userCacheData.esteAdmin} />
       <div className={classes.loadingContainer}>
         <img src={loadingGif} alt='loading' hidden={!loading} />
       </div>
-      <EmployeesCards employees={state.results} loading={loading} />
-      <Pagination state={state} pageChangeHandler={pageChangeHandler} />
+      <EmployeesCards employees={state.results} loading={loading} permissions={userCacheData.esteAdmin} />
+      <Pagination state={state} pageChangeHandler={pageChangeHandler} loading={loading} />
     </div>
   )
 }

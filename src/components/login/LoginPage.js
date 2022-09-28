@@ -12,6 +12,14 @@ import logo from '../../assets/img/logo.svg'
 
 const useStyles = makeStyles(publicMainStyle)
 
+async function sha256(password) {
+  const msgBuffer = new TextEncoder().encode(password)
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer)
+  const hashArray = Array.from(new Uint8Array(hashBuffer))
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('')
+  return hashHex
+}
+
 const LoginPage = props => {
   const { setToken } = props
   const theme = useTheme()
@@ -33,7 +41,8 @@ const LoginPage = props => {
       setHelperText('Username and passwords are mandatory.')
       return
     }
-    const { data } = await authenticateUser({ variables: { userName: localState.userName, password: localState.password } })
+    const hasedPassword = await sha256(localState.password)
+    const { data } = await authenticateUser({ variables: { userName: localState.userName, password: hasedPassword } })
 
     if (!data.authenticateUser) {
       setError(true)
@@ -41,7 +50,7 @@ const LoginPage = props => {
       return
     }
     setError(false)
-    setToken('token')
+    setToken(localState.userName)
   }
 
   return (
@@ -54,6 +63,7 @@ const LoginPage = props => {
               className={classes.loginInputsItem}
               id='outlined-basic'
               label={'Username'}
+              type='text'
               variant='outlined'
               InputProps={{
                 className: classes.loginInputsItemColor
@@ -64,6 +74,7 @@ const LoginPage = props => {
               className={classes.loginInputsItem}
               id='filled-secondary'
               label={'Password'}
+              type='password'
               variant='filled'
               color='secondary'
               InputProps={{

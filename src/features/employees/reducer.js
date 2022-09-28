@@ -17,7 +17,7 @@ export function reducer(state, action) {
       return {
         ...state,
         page: action.page,
-        startIndex: (action.page - 1) * 9
+        startIndex: (action.page - 1) * 12
       }
     default:
       return state

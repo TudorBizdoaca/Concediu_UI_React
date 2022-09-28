@@ -16,7 +16,7 @@ import avatarTest from '../../assets/img/default-avatar.jpg'
 
 const useStyles = makeStyles(employeeCardStyle)
 
-function EmployeeCard({ employee, loading }) {
+function EmployeeCard({ employee, loading, permissions }) {
   const { t } = useTranslation()
   const classes = useStyles()
   const history = useHistory()
@@ -41,9 +41,11 @@ function EmployeeCard({ employee, loading }) {
   return (
     !loading && (
       <Paper className={classes.card}>
-        <IconButton className={classes.buttonDots} aria-label='options' onClick={handleClick}>
-          <img className={classes.icon} alt='iconDots' src={iconDots} />
-        </IconButton>
+        {permissions && (
+          <IconButton className={classes.buttonDots} aria-label='options' onClick={handleClick}>
+            <img className={classes.icon} alt='iconDots' src={iconDots} />
+          </IconButton>
+        )}
         <Menu
           anchorEl={anchorEl}
           open={open}
@@ -94,7 +96,8 @@ function EmployeeCard({ employee, loading }) {
 
 EmployeeCard.propTypes = {
   employee: PropTypes.object,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  permissions: PropTypes.bool.isRequired
 }
 
 export default EmployeeCard

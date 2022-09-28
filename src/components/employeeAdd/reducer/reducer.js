@@ -9,7 +9,9 @@ export const initialState = {
   phone: '',
   dataAngajarii: null,
   dataNasterii: null,
-  poza: null
+  poza: null,
+  results: [],
+  managerId: 0
 }
 
 export function reducer(state, action) {
@@ -17,7 +19,9 @@ export function reducer(state, action) {
   switch (action.type) {
     case 'OnPropertyChange':
       return { ...state, [propertyName]: value }
+    case 'manageri':
+      return { ...state, results: action.results }
     default:
-      throw new Error()
+      return state
   }
 }
