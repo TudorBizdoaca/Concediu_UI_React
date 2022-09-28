@@ -1,29 +1,7 @@
 import React from 'react'
 import { useApolloClient } from '@apollo/client'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
-import { gql } from '@apollo/client'
-
-const USER_DATA_QUERY = gql`
-  query userData($email: String!) {
-    userData(email: $email) {
-      id
-      nume
-      prenume
-      email
-      parola
-      dataAngajare
-      dataNasterii
-      cnp
-      serie
-      no
-      nrTelefon
-      poza
-      esteAdmin
-      managerId
-      zileConcediu
-    }
-  }
-`
+import { USER_DATA_QUERY } from 'hooks/queries'
 
 const UserDataProvider = () => {
   const client = useApolloClient()

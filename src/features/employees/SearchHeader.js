@@ -10,7 +10,7 @@ import searchHeaderStyle from 'features/employees/styles/searchHeaderStyle'
 
 const useStyles = makeStyles(searchHeaderStyle)
 
-function SearchHeader({ searchHandler, searchInputRef }) {
+function SearchHeader({ searchHandler, searchInputRef, permissions }) {
   const { t } = useTranslation()
   const classes = useStyles()
   const history = useHistory()
@@ -44,6 +44,7 @@ function SearchHeader({ searchHandler, searchInputRef }) {
           size='large'
           startIcon={<img className={classes.icon} alt='iconAddUser' src={iconAddUser} />}
           onClick={handleClick}
+          hidden={!permissions}
         >
           Adauga angajat
         </Button>
@@ -54,7 +55,8 @@ function SearchHeader({ searchHandler, searchInputRef }) {
 
 SearchHeader.propTypes = {
   searchHandler: PropTypes.func.isRequired,
-  searchInputRef: PropTypes.object.isRequired
+  searchInputRef: PropTypes.object.isRequired,
+  permissions: PropTypes.bool.isRequired
 }
 
 export default SearchHeader
