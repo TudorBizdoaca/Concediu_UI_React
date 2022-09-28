@@ -61,10 +61,11 @@ const LoginPage = props => {
           <div className={classes.loginInputs}>
             <TextField
               className={classes.loginInputsItem}
-              id='outlined-basic'
+              id='filled-secondary'
               label={'Username'}
               type='text'
-              variant='outlined'
+              variant='filled'
+              color='secondary'
               InputProps={{
                 className: classes.loginInputsItemColor
               }}
@@ -91,6 +92,10 @@ const LoginPage = props => {
           <Button className={classes.login} variant='contained' color='primary' size='large' onClick={handleCLick}>
             {'Login'}
           </Button>
+          <div className={classes.resetPassword}>
+            <Typography>Ai uitat parola?</Typography>
+            <Typography>Reseteaza aici</Typography>
+          </div>
         </div>
       </Container>
     </Container>
