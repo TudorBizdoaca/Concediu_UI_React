@@ -51,7 +51,6 @@ function VacationsComponent(props) {
             <StyledTableCell>Starting Date</StyledTableCell>
             <StyledTableCell>Ending Date</StyledTableCell>
             <StyledTableCell>State</StyledTableCell>
-            <StyledTableCell>Reason</StyledTableCell>
             <StyledTableCell>Details</StyledTableCell>
           </TableRow>
         </TableHead>

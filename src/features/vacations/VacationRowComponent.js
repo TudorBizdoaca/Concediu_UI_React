@@ -38,14 +38,14 @@ function VacationRowComponent(props) {
   const history = useHistory()
   return (
     <StyledTableRow>
-      <StyledTableCell>{row.name}</StyledTableCell>
+      <StyledTableCell>{row.nume}</StyledTableCell>
       <StyledTableCell>{row.manager}</StyledTableCell>
-      <StyledTableCell>{row.vacationtype}</StyledTableCell>
-      <StyledTableCell>{row.replacement}</StyledTableCell>
-      <StyledTableCell>{row.startingdate}</StyledTableCell>
-      <StyledTableCell>{row.endingdate}</StyledTableCell>
-      <StyledTableCell>{row.state}</StyledTableCell>
-      <StyledTableCell>{row.reason}</StyledTableCell>
+      <StyledTableCell>{row.tipConcediu}</StyledTableCell>
+      <StyledTableCell>{row.numeInlocuitor}</StyledTableCell>
+      <StyledTableCell>{row.dataInceput}</StyledTableCell>
+      <StyledTableCell>{row.dataSfarsit}</StyledTableCell>
+      <StyledTableCell>{row.stareConcediu}</StyledTableCell>
+      {/* <StyledTableCell>{row.reason}</StyledTableCell> */}
       <StyledTableCell>
         <Button variant='contained' color='primary' onClick={() => history.push({ pathname: `/vacations/details/${row.id}` })}>
           Details
