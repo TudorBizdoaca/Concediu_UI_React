@@ -41,7 +41,8 @@
     "DataNastere": "DATE OF BIRTH",
     "PhoneNo": "PHONE NUMBER",
     "EmpAdded": "Employee added!",
-    "InsFailed": "Insert failed!"
+    "InsFailed": "Insert failed!",
+    "Manager": "MANAGER"
   },
   "IstoricConcedii": {
     "Period": "Period: ",
