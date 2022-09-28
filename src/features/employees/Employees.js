@@ -68,7 +68,7 @@ function Employees() {
       <div className={classes.loadingContainer}>
         <img src={loadingGif} alt='loading' hidden={!loading} />
       </div>
-      <EmployeesCards employees={state.results} loading={loading} />
+      <EmployeesCards employees={state.results} loading={loading} permissions={userCacheData.esteAdmin} />
       <Pagination state={state} pageChangeHandler={pageChangeHandler} loading={loading} />
     </div>
   )
