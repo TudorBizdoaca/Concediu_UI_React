@@ -13,12 +13,14 @@ import PTORequest from 'features/PTORequest/PTORequest'
 import HolidayHistoryContainer from 'features/istoric/HolidayHistoryContainer'
 import AddEmployeeContainer from 'features/addEmployee/AddEmployeeContainer'
 import DetailsComponent from 'features/vacations/DetailsComponent'
+import MyProfile from 'features/myProfile/MyProfile'
 
 export default function AppRoutes() {
   return (
     <Switch>
       <CustomRoute isPrivate={false} exact path='/dashboard' component={Dashboard} />
       <Redirect exact from='/' to='/dashboard' />
+      <CustomRoute isPrivate={false} exact path='/myProfile' component={MyProfile} />
       <CustomRoute isPrivate={false} exact path='/vacations' component={VacationsContainer} />
       <CustomRoute isPrivate={false} exact path='/employees' component={Employees} />
       <CustomRoute isPrivate={false} exact path='/employee/:id' component={Employee} />
@@ -27,6 +29,7 @@ export default function AppRoutes() {
       <CustomRoute isPrivate={false} exact path='/vacations/details/:id' component={DetailsComponent} />
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />
       <CustomRoute isPrivate={false} exact path='/PTORequest' component={PTORequest} />
+      <CustomRoute isPrivate={false} exact path='/logout' component={MyProfile} />
       <CustomRoute isPrivate={false} render={() => <NotFound title='PageNotFound'></NotFound>} />
     </Switch>
   )
