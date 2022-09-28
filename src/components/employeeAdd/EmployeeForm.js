@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next'
 import { useHistory } from 'react-router'
 import PropTypes from 'prop-types'
 import { extractDataNastereFromCnp } from 'features/addEmployee/utils/extractDataNastereFromCnp'
+import { Autocomplete } from '@bit/totalsoft_oss.react-mui.kit.core'
 function EmployeeForm(props) {
   const useStyles = makeStyles(formStyle)
   const classes = useStyles()
@@ -118,8 +119,7 @@ function EmployeeForm(props) {
               variant='inline'
               format='MM/dd/yyyy'
               margin='normal'
-              value={state.cnp.length == 13 ? extractDataNastereFromCnp(state.cnp) : new Date()}
-              disabled
+              value={state.dataNasterii}
               onChange={event => dispatchWrapper('dataNasterii', event)}
               KeyboardButtonProps={{
                 'aria-label': 'change date'
@@ -150,6 +150,19 @@ function EmployeeForm(props) {
             className={classes.textfield}
           ></TextField>
         </Grid>
+        <Grid item md={6} xs={12}>
+          <Typography className={classes.label}>{t('EmployeeForm.Manager')}</Typography>
+          <Autocomplete
+            onChange={event => dispatchWrapper('managerId', event.id)}
+            variant='outlined'
+            options={state.results}
+            filterOptions={(options, state) => options}
+            getOptionLabel={option => option.NumeIntreg}
+            renderInput={params => <TextField {...params} label='' variant='outlined' />}
+            className={classes.textfield}
+          ></Autocomplete>
+        </Grid>
+        <Grid item md={6} xs={12}></Grid>
         <Grid item md={6} xs={12}>
           <Button variant='contained' color='primary' size='small' className={classes.button} onClick={handleCancel} startIcon={<Cancel />}>
             {t('EmployeeForm.Renunta')}
