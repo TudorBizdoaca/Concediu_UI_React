@@ -59,6 +59,8 @@ function App(props) {
       [classes.mainPanelSidebarMini]: !drawerOpen
     })
 
+  // console.log(location.pathname)
+
   if (!token) {
     return <LoginPage setToken={setToken} />
   }

@@ -19,6 +19,7 @@ import { ArrowDropDown, ArrowDropUp } from '@material-ui/icons'
 import { useLazyQuery } from '@apollo/client'
 import { TenantContext } from 'providers/TenantAuthenticationProvider'
 import TenantSelector, { MY_TENANTS_QUERY } from './TenantSelector'
+import useUserData from 'hooks/useUserData'
 
 const useStyles = makeStyles(userMenuStyle)
 
@@ -94,14 +95,19 @@ function UserMenu({ drawerOpen, avatar, language, changeLanguage, withGradient }
     cx({
       [classes.itemTextMini]: !drawerOpen
     })
-  const displayName = `${userName}${tenantName}`
+  const userCacheData = useUserData()
+  const displayName = `${userCacheData.nume} ${userCacheData.prenume}`
 
   return (
     <List className={classes.userMenuContainer}>
       <ListItem className={classes.item + ' ' + classes.userItem}>
         <NavLink to={'/'} className={classes.itemLink} onClick={openCollapseAvatar}>
           <ListItemIcon className={classes.itemIcon}>
-            <img src={avatar ? avatar : avatar_default} className={classes.photo} alt='...' />
+            <img
+              src={userCacheData.poza ? `data:image/*;base64,${userCacheData.poza}` : avatar_default}
+              className={classes.photo}
+              alt='...'
+            />
           </ListItemIcon>
           <ListItemText
             primary={displayName}

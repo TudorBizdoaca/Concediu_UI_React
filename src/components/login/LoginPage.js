@@ -9,6 +9,9 @@ import { initialState, reducer } from './reducers/loginReducer'
 import { useMutation } from '@apollo/client'
 import { AUTHENTICATE_USER } from './mutations'
 import logo from '../../assets/img/logo.svg'
+import { useHistory } from 'react-router-dom'
+import { Person } from '@material-ui/icons'
+import { Lock } from '@material-ui/icons'
 
 const useStyles = makeStyles(publicMainStyle)
 
@@ -23,7 +26,8 @@ async function sha256(password) {
 const LoginPage = props => {
   const { setToken } = props
   const theme = useTheme()
-  // const { logo } = theme
+  const history = useHistory()
+
   const classes = useStyles()
   const [localState, dispatch] = useReducer(reducer, initialState)
   const [authenticateUser] = useMutation(AUTHENTICATE_USER)
@@ -53,28 +57,37 @@ const LoginPage = props => {
     setToken(localState.userName)
   }
 
+  const handleClickRegister = () => {
+    history.push({ pathname: `/register` })
+  }
+
   return (
     <Container className={classes.root}>
       <Container className={classes.loginForm} maxWidth='sm'>
         <div className={classes.paper}>
           <img src={logo} alt='logo' className={classes.logo} />
+
           <div className={classes.loginInputs}>
+            <div className={classes.loginLabel}>
+              <Person className={classes.icon} />
+              <Typography className={classes.loginLabelText}>Username</Typography>
+            </div>
             <TextField
               className={classes.loginInputsItem}
-              id='filled-secondary'
-              label={'Username'}
               type='text'
-              variant='filled'
+              variant='outlined'
               color='secondary'
               InputProps={{
                 className: classes.loginInputsItemColor
               }}
               onChange={event => handleChange('userName', event.target.value)}
             ></TextField>
+            <div className={classes.loginLabel}>
+              <Lock className={classes.icon} />
+              <Typography className={classes.loginLabelText}>Password</Typography>
+            </div>
             <TextField
               className={classes.loginInputsItem}
-              id='filled-secondary'
-              label={'Password'}
               type='password'
               variant='outlined'
               color='secondary'
@@ -92,9 +105,13 @@ const LoginPage = props => {
           <Button className={classes.login} variant='contained' color='primary' size='large' onClick={handleCLick}>
             {'Login'}
           </Button>
-          <div className={classes.resetPassword}>
-            <Typography>Ai uitat parola?</Typography>
-            <Typography>Reseteaza aici</Typography>
+          <div className={classes.newAccount}>
+            <Typography className={classes.newAccountText}>No account?</Typography>
+            <Typography className={classes.newAccountText}>
+              <div className={classes.newAccountLink} onClick={handleClickRegister}>
+                Create New Account
+              </div>
+            </Typography>
           </div>
         </div>
       </Container>

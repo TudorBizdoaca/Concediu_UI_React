@@ -34,7 +34,7 @@ const publicMainStyle = theme => {
     },
     login: {
       padding: '14px 24px',
-      width: '50%',
+      width: '60%',
       backgroundColor: '#DFA625',
       color: 'white',
       fontWeight: 700,
@@ -52,6 +52,15 @@ const publicMainStyle = theme => {
       marginTop: '64px',
       marginBottom: '24px',
       width: '60%'
+    },
+    loginLabel: {
+      display: 'flex',
+      marginBottom: '14px',
+      color: '#aaa'
+    },
+    loginLabelText: {
+      fontWeight: 'bold',
+      marginLeft: '14px'
     },
     loginInputsItem: {
       marginBottom: '24px'
@@ -156,11 +165,27 @@ const publicMainStyle = theme => {
       backgroundColor: 'white',
       borderRadius: '5px'
     },
-    resetPassword: {
+    newAccount: {
       display: 'flex',
       justifyContent: 'space-between',
       width: '60%',
-      marginTop: '34px'
+      marginTop: '42px',
+      color: 'white'
+    },
+    newAccountText: {
+      fontWeight: 'bold',
+      color: '#aaa'
+    },
+    newAccountLink: {
+      color: 'CornflowerBlue',
+      '&:hover': {
+        color: 'DarkSlateBlue',
+        textDecoration: 'underline',
+        cursor: 'pointer'
+      }
+    },
+    icon: {
+      color: '#aaa'
     }
   }
 }
