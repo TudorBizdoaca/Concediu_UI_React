@@ -14,6 +14,7 @@
   "Forbidden": "Not allowed to see this page!",
   "NavBar": {
     "Dashboard": "Dashboard",
+    "Vacations": "Vacations",
     "HolidayHistory": "Holiday History",
     "Employees": "Employees",
     "Settings": "Settings",
@@ -93,7 +94,7 @@
     "VacationDays": "Vacation Days"
   },
 
-  "VacationsContainer": {
+  "Vacations": {
     "Vacations": "Vacations",
     "Name": "Name",
     "Manager": "Manager",
@@ -103,6 +104,7 @@
     "Ending Date": "Ending Date",
     "State": "State",
     "Reason": "Reason",
-    "Modify": "Modify"
+    "Modify": "Modify",
+    "odihna": "rest"
   }
 }

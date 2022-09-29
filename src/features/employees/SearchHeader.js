@@ -38,16 +38,17 @@ function SearchHeader({ searchHandler, searchInputRef, permissions }) {
             onChange={searchHandler}
           />
         </div>
-        <Button
-          className={classes.button}
-          variant='contained'
-          size='large'
-          startIcon={<img className={classes.icon} alt='iconAddUser' src={iconAddUser} />}
-          onClick={handleClick}
-          hidden={!permissions}
-        >
-          Adauga angajat
-        </Button>
+        {permissions && (
+          <Button
+            className={classes.button}
+            variant='contained'
+            size='large'
+            startIcon={<img className={classes.icon} alt='iconAddUser' src={iconAddUser} />}
+            onClick={handleClick}
+          >
+            Adauga angajat
+          </Button>
+        )}
       </div>
     </div>
   )
