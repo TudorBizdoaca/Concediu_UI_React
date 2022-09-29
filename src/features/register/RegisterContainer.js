@@ -73,6 +73,9 @@ function RegisterContainer() {
     console.log('HI')
     let valid = validation.valid,
       err = validation.err
+    if (state.nume === 'def') {
+      return
+    }
     if (valid === false) {
       dispatchWrapper('numeErr', err)
       dispatchWrapper('isValidNume', false)
@@ -82,6 +85,9 @@ function RegisterContainer() {
     }
   }, [state.nume])
   useEffect(() => {
+    if (state.prenume === 'def') {
+      return
+    }
     let validation = validarePrenume(state.prenume)
     let valid = validation.valid,
       err = validation.err
@@ -95,6 +101,9 @@ function RegisterContainer() {
   }, [state.prenume])
 
   useEffect(() => {
+    if (state.email === 'def') {
+      return
+    }
     let validation = validareEmail(state.email)
     let valid = validation.valid,
       err = validation.err
@@ -107,6 +116,9 @@ function RegisterContainer() {
     }
   }, [state.email])
   useEffect(() => {
+    if (state.parola === 'def') {
+      return
+    }
     let validation = validareParola(state.parola)
     let valid = validation.valid,
       err = validation.err
@@ -119,6 +131,9 @@ function RegisterContainer() {
     }
   }, [state.parola])
   useEffect(() => {
+    if (state.serie === 'de') {
+      return
+    }
     let validation = validareSerie(state.serie)
     let valid = validation.valid,
       err = validation.err
@@ -131,6 +146,9 @@ function RegisterContainer() {
     }
   }, [state.serie])
   useEffect(() => {
+    if (state.nr === '0') {
+      return
+    }
     let validation = validareNr(state.nr)
     let valid = validation.valid,
       err = validation.err
@@ -143,6 +161,9 @@ function RegisterContainer() {
     }
   }, [state.nr])
   useEffect(() => {
+    if (state.phone === '0') {
+      return
+    }
     let validation = validarePhone(state.phone)
     let valid = validation.valid,
       err = validation.err
@@ -155,6 +176,9 @@ function RegisterContainer() {
     }
   }, [state.phone])
   useEffect(() => {
+    if (state.cnp === 'def') {
+      return
+    }
     let validation = validareCnp(state.cnp)
     let valid = validation.valid,
       err = validation.err
