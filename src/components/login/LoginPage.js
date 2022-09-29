@@ -76,7 +76,7 @@ const LoginPage = props => {
               id='filled-secondary'
               label={'Password'}
               type='password'
-              variant='filled'
+              variant='outlined'
               color='secondary'
               InputProps={{
                 className: classes.loginInputsItemColor

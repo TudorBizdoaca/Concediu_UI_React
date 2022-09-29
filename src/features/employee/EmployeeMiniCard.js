@@ -1,21 +1,63 @@
-import { makeStyles, Typography } from '@material-ui/core'
+import { Badge, makeStyles, TextField, Typography } from '@material-ui/core'
+import { Edit } from '@material-ui/icons'
+import PropTypes from 'prop-types'
 import React from 'react'
 import employeeMiniCardStyle from './styles/employeeMiniCardStyle'
 
 const useStyles = makeStyles(employeeMiniCardStyle)
 
-function EmployeeMiniCard() {
+function EmployeeMiniCard({ state, handleOnCHangeText }) {
   const classes = useStyles()
+
+  var imgURL = `data:image/*;base64,${state.employee.poza}`
 
   return (
     <div className={classes.card}>
-      <img className={classes.avatar} alt='avatar' src='https://i.pinimg.com/originals/40/48/17/404817db5ec123721a0f418096f37929.jpg' />
-      <div className={classes.user}>
-        <Typography className={classes.firstName}>Prenume</Typography>
-        <Typography className={classes.lastName}>Nume</Typography>
-      </div>
+      {state.isEditing ? (
+        <Badge
+          overlap='circular'
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+          badgeContent={<Edit className={classes.icon} fontSize='medium' />}
+        >
+          <img className={classes.avatar} alt='avatar' src={imgURL} />
+        </Badge>
+      ) : (
+        <img className={classes.avatar} alt='avatar' src={imgURL} />
+      )}
+      {state.isEditing ? (
+        <div className={classes.user}>
+          <TextField
+            variant='outlined'
+            value={state.employee.prenume}
+            onChange={event => handleOnCHangeText(event.target.value, 'prenume')}
+            InputProps={{
+              className: classes.textField,
+              readOnly: !state.isEditing
+            }}
+          ></TextField>
+          <TextField
+            variant='outlined'
+            value={state.employee.nume}
+            onChange={event => handleOnCHangeText(event.target.value, 'nume')}
+            InputProps={{
+              className: classes.textField,
+              readOnly: !state.isEditing
+            }}
+          ></TextField>
+        </div>
+      ) : (
+        <div className={classes.user}>
+          <Typography className={classes.firstName}>{state.employee.prenume}</Typography>
+          <Typography className={classes.lastName}>{state.employee.nume}</Typography>
+        </div>
+      )}
     </div>
   )
+}
+
+EmployeeMiniCard.propTypes = {
+  state: PropTypes.object.isRequired,
+  handleOnCHangeText: PropTypes.func.isRequired
 }
 
 export default EmployeeMiniCard
