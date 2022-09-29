@@ -16,11 +16,6 @@ const useStyles = makeStyles(employeesStyle)
 
 const totalEmployees = 26
 
-const loggedUserData = {
-  esteAdmin: true,
-  managerId: null
-}
-
 const initialState = {
   results: [],
   query: '',

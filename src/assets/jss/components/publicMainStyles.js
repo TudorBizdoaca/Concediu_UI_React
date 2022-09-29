@@ -50,7 +50,7 @@ const publicMainStyle = theme => {
       display: 'flex',
       flexDirection: 'column',
       marginTop: '64px',
-      marginBottom: '48px',
+      marginBottom: '24px',
       width: '60%'
     },
     loginInputsItem: {
@@ -155,6 +155,12 @@ const publicMainStyle = theme => {
     publicHeaderFooterGrid: {
       backgroundColor: 'white',
       borderRadius: '5px'
+    },
+    resetPassword: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      width: '60%',
+      marginTop: '34px'
     }
   }
 }
