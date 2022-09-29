@@ -12,10 +12,6 @@ function VacationsContainer() {
     onCompleted: data => setState(data.vacationsData),
     skip: !userCacheData.esteAdmin || !userCacheData.id
   })
-  // useQueryWithErrorHandling(GET_VACATIONS_NO, {
-  //   variables: { isAdmin: userCacheData.esteAdmin, id: userCacheData.managerId },
-  //   onCompleted: data => setState(data.vacationsNo)
-  // })
 
   return <VacationComponent arr={state || []}></VacationComponent>
 }
