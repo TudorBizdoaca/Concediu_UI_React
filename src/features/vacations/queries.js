@@ -32,3 +32,9 @@ export const GET_DETAILS = gql`
     }
   }
 `
+
+export const POST_DETAILS = gql`
+  mutation updateStareConcediu($input: DetailsInput) {
+    updateStareConcediu(input: $input)
+  }
+`

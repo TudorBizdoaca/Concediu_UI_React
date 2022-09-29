@@ -18,7 +18,8 @@
     "HidePassword": "Ascunde parola",
     "ShowPassword": "Arata parola",
     "Holidays": "Concedii",
-    "AddEmployee": "Adauga Angajat"
+    "AddEmployee": "Adauga Angajat",
+    "Register": "Inregistrare"
   },
   "EmployeeForm": {
     "Name": "NUME",
@@ -84,7 +85,7 @@
     "VacationDays": "Zile Concediu"
   },
 
-  "VacationsContainer": {
+  "Vacations": {
     "Vacations": "Concedii",
     "Name": "Nume",
     "Manager": "Manager",

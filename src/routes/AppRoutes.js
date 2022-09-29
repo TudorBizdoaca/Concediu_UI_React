@@ -13,6 +13,7 @@ import PTORequest from 'features/PTORequest/PTORequest'
 import HolidayHistoryContainer from 'features/istoric/HolidayHistoryContainer'
 import AddEmployeeContainer from 'features/addEmployee/AddEmployeeContainer'
 import DetailsComponent from 'features/vacations/DetailsComponent'
+import RegisterContainer from 'features/register/RegisterContainer'
 import MyProfile from 'features/myProfile/MyProfile'
 
 export default function AppRoutes() {
@@ -29,6 +30,7 @@ export default function AppRoutes() {
       <CustomRoute isPrivate={false} exact path='/vacations/details/:id' component={DetailsComponent} />
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />
       <CustomRoute isPrivate={false} exact path='/PTORequest' component={PTORequest} />
+      <CustomRoute isPrivate={false} exact path='/register' component={RegisterContainer} />
       <CustomRoute isPrivate={false} exact path='/logout' component={MyProfile} />
       <CustomRoute isPrivate={false} render={() => <NotFound title='PageNotFound'></NotFound>} />
     </Switch>
