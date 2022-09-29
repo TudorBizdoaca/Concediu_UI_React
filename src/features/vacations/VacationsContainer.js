@@ -7,10 +7,10 @@ import useUserData from 'hooks/useUserData'
 function VacationsContainer() {
   const [state, setState] = useState(null)
   const userCacheData = useUserData()
-  const id_logat = userCacheData.id
   useQueryWithErrorHandling(GET_VACATIONS, {
-    variables: { position: 1, isAdmin: userCacheData.esteAdmin, id: id_logat },
-    onCompleted: data => setState(data.vacationsData)
+    variables: { position: 1, isAdmin: userCacheData.esteAdmin, id: userCacheData.id },
+    onCompleted: data => setState(data.vacationsData),
+    skip: !userCacheData.esteAdmin || !userCacheData.id
   })
   // useQueryWithErrorHandling(GET_VACATIONS_NO, {
   //   variables: { isAdmin: userCacheData.esteAdmin, id: userCacheData.managerId },

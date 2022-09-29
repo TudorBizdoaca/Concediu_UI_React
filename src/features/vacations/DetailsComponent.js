@@ -7,18 +7,7 @@ import { GET_DETAILS } from './queries'
 import { POST_DETAILS } from './queries'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import { useMutation } from '@apollo/client'
-
-// function createData(name, manager, vacationtype, replacement, startingdate, endingdate, state, reason) {
-//   return { name, manager, vacationtype, replacement, startingdate, endingdate, state, reason }
-// }
-
-// const arr = [
-//   createData('Frozen yoghurt', 159, 6.0, 24, '2022-09-23', '2022-09-23', 'ss', 'aa'),
-//   createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 'dd', 'ss', 'aa'),
-//   createData('Eclair', 262, 16.0, 24, 6.0, 'dd', 'ss', 'aa'),
-//   createData('Cupcake', 305, 3.7, 67, 4.3, 'dd', 'ss', 'aa'),
-//   createData('Gingerbread', 356, 16.0, 49, 3.9, 'dd', 'ss', 'aa')
-// ]
+import { format } from 'date-fns'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -59,13 +48,7 @@ function DetailsComponent() {
     <form className={classes.root} noValidate autoComplete='off'>
       <h1>
         <div>
-          <TextField
-            id='standard-read-only-input'
-            label='Name'
-            inputProps={{ readOnly: true }}
-            // defaultValue={arr[Vid.params.id].name}
-            value={arr ? arr.nume : ''}
-          />
+          <TextField id='standard-read-only-input' label='Name' inputProps={{ readOnly: true }} value={arr ? arr.nume : ''} />
           <TextField id='standard-read-only-input' label='Manager' inputProps={{ readOnly: true }} value={arr ? arr.numeManager : ''} />
           <TextField
             id='standard-read-only-input'
@@ -82,20 +65,16 @@ function DetailsComponent() {
         </div>
         <div>
           <TextField
-            type='date'
-            // id='standard-read-only-input'
             label='Starting Date'
             inputProps={{ readOnly: true }}
             InputLabelProps={{ shrink: true }}
-            value={arr ? arr.dataInceput.toDateString : '2022-05-24'}
+            value={arr ? arr.dataInceput : '2022-05-24'}
           />
           <TextField
-            type='date'
-            // id='standard-read-only-input'
             InputLabelProps={{ shrink: true }}
             label='Ending Date'
             inputProps={{ readOnly: true }}
-            value={arr ? arr.dataSfarsit.toDateString : '2022-05-24'}
+            value={arr ? arr.dataSfarsit : '2022-05-24'}
           />
           <TextField id='standard-read-only-input' label='State' inputProps={{ readOnly: true }} value={arr ? arr.stareConcediu : ''} />
           <TextField id='standard-read-only-input' label='Reason' inputProps={{ readOnly: true }} value={arr ? arr.motivRespingere : ''} />
@@ -114,8 +93,5 @@ function DetailsComponent() {
     </form>
   )
 }
-// DetailsComponent.propTypes = {
-//   row: PropTypes.object.isRequired
-// }
 
 export default DetailsComponent
