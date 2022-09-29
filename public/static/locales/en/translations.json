@@ -26,7 +26,8 @@
     "HidePassword": "Hide password",
     "ShowPassword": "Show password",
     "Holidays": "Holidays",
-    "AddEmployee": "Add Employee"
+    "AddEmployee": "Add Employee",
+    "Register": "Register"
   },
   "EmployeeForm": {
     "Name": "LAST NAME",

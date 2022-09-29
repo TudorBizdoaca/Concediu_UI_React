@@ -7,12 +7,14 @@ import cardContainer from 'assets/jss/components/cardContainer'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import { reducer, initialState } from 'features/istoric/reducer/reducer'
 import { GET_HOLIDAY_HISTORY } from './queries'
+import useUserData from 'hooks/useUserData'
 function HolidayHistoryContainer() {
   const { t } = useTranslation()
   const useStyles = makeStyles(cardContainer)
   const classes = useStyles()
+  const userCacheData = useUserData()
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { data, loading } = useQueryWithErrorHandling(GET_HOLIDAY_HISTORY, { variables: { id: 20 } })
+  const { data, loading } = useQueryWithErrorHandling(GET_HOLIDAY_HISTORY, { variables: { id: userCacheData.id } })
 
   useEffect(() => {
     if (data && !loading) {
