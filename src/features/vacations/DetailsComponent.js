@@ -1,12 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState } from 'react'
 // import PropTypes from 'prop-types'
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
 import { useRouteMatch } from 'react-router-dom'
-import { MenuItem } from '@material-ui/core'
-import PropTypes from 'prop-types'
 import { GET_DETAILS } from './queries'
+import { POST_DETAILS } from './queries'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
+import { useMutation } from '@apollo/client'
 
 // function createData(name, manager, vacationtype, replacement, startingdate, endingdate, state, reason) {
 //   return { name, manager, vacationtype, replacement, startingdate, endingdate, state, reason }
@@ -33,11 +33,27 @@ function DetailsComponent() {
   const Vid = useRouteMatch()
   const classes = useStyles()
   const [state, setState] = useState(null)
-  useQueryWithErrorHandling(GET_DETAILS, {
+  const { refetch } = useQueryWithErrorHandling(GET_DETAILS, {
     variables: { id: parseInt(Vid.params.id, 10) },
     onCompleted: data => setState(data.detailsData)
   })
+
   const arr = state
+  var show = false
+  if (arr?.stareConcediu === 'in asteptare') show = true
+  const [updateStare] = useMutation(POST_DETAILS, {
+    onCompleted: _ => {
+      refetch()
+    }
+  })
+
+  const handleClick = stareConcediuId => () => {
+    updateStare({
+      variables: {
+        input: { id: arr.id, stareConcediuId }
+      }
+    })
+  }
 
   return (
     <form className={classes.root} noValidate autoComplete='off'>
@@ -84,7 +100,16 @@ function DetailsComponent() {
           <TextField id='standard-read-only-input' label='State' inputProps={{ readOnly: true }} value={arr ? arr.stareConcediu : ''} />
           <TextField id='standard-read-only-input' label='Reason' inputProps={{ readOnly: true }} value={arr ? arr.motivRespingere : ''} />
         </div>
-        <button>Edit</button>
+        {show && (
+          <button variant='outlined' onClick={handleClick(1)}>
+            Aproba
+          </button>
+        )}
+        {show && (
+          <button variant='outlined' onClick={handleClick(3)}>
+            Respinge
+          </button>
+        )}
       </h1>
     </form>
   )
