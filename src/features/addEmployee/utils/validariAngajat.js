@@ -12,7 +12,7 @@ export function validareNume(nume) {
 export function validarePrenume(prenume) {
   let isValid = true
   let message
-  if (prenume === '' || prenume === null || prenume === undefined || !prenume.match(/^[a-zA-Z]+$/)) {
+  if (prenume === '' || prenume === null || prenume === undefined || !prenume.match(/^[A-Za-z\s-]+$/)) {
     isValid = false
     message = 'Introduceti un prenume valid!'
   }
