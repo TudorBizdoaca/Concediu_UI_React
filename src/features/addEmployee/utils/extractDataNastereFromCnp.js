@@ -27,13 +27,18 @@ export function extractDataNastereFromCnp(cnp) {
         zi = cnp.substring(5, 7)
         break
     }
-    var data = new Date(format(new Date(an, luna - 1, zi), 'MM/dd/yyyy'))
-    const varsta = new Date().getFullYear() - data.getFullYear()
-    console.log(varsta)
+    var varsta
+    try {
+      var data = new Date(format(new Date(an, luna - 1, zi), 'MM/dd/yyyy'))
+      varsta = new Date().getFullYear() - data.getFullYear()
+    } catch (e) {
+      console.log(e)
+    }
+
     if (data > new Date()) {
       isValid = false
       message = 'Data nasterii nu poate fi in viitor'
-    } else if (new Date().getFullYear() - data.getFullYear() < 18) {
+    } else if (varsta < 18) {
       isValid = false
       message = 'Varsta minima 18 ani!'
     } else {
