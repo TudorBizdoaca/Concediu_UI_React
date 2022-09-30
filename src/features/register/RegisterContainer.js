@@ -1,6 +1,7 @@
 import React, { useReducer, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
-import { Grid, makeStyles } from '@material-ui/core'
+import { Grid, IconButton, makeStyles } from '@material-ui/core'
 import { registerReducer, initialState } from './registerReducer'
 import EmployeeForm from 'components/employeeAdd/EmployeeForm'
 import { POST_EMPLOYEE } from 'components/employeeAdd/mutations'
@@ -21,8 +22,9 @@ import {
   validarePhone
 } from 'features/addEmployee/utils/validariAngajat'
 import { verifyForm } from './verifyForm'
+import iconBack from 'assets/img/iconBack.svg'
 
-function RegisterContainer() {
+function RegisterContainer({ setRegister }) {
   const { t } = useTranslation()
 
   const useStyles = makeStyles(formStyle)
@@ -211,12 +213,27 @@ function RegisterContainer() {
       }
     }
   }, [state.cnp])
+
+  const handleClickBack = () => {
+    setRegister(false)
+    history.push({ pathname: `/` })
+    location.reload()
+  }
+
   return (
     <Grid item container xs={12} className={classesForm.card}>
-      <h1 className={classesForm.title}>{t('Tooltips.Register')}</h1>
+      <div className={classesForm.header}>
+        <IconButton className={classesForm.buttonDots} aria-label='options' onClick={handleClickBack}>
+          <img className={classesForm.icon} alt='iconBack' src={iconBack} />
+        </IconButton>
+        <h1 className={classesForm.title}>{t('Tooltips.Register')}</h1>
+      </div>
       <EmployeeForm dispatchWrapper={dispatchWrapper} state={state} handleSave={handleSave} classesForm={classesForm} />
     </Grid>
   )
+}
+RegisterContainer.propTypes = {
+  setRegister: PropTypes.func.isRequired
 }
 
 export default RegisterContainer

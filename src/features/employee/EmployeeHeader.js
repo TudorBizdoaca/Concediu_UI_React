@@ -12,7 +12,7 @@ function EmployeeHeader({ handleClick }) {
   return (
     <div className={classes.header}>
       <IconButton className={classes.buttonDots} aria-label='options' onClick={handleClick}>
-        <img className={classes.icon} alt='iconDots' src={iconBack} />
+        <img className={classes.icon} alt='iconBack' src={iconBack} />
       </IconButton>
       <h2 className={classes.title}>Detalii angajat</h2>
     </div>

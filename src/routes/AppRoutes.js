@@ -19,8 +19,8 @@ import MyProfile from 'features/myProfile/MyProfile'
 export default function AppRoutes() {
   return (
     <Switch>
-      <CustomRoute isPrivate={false} exact path='/dashboard' component={Dashboard} />
-      <Redirect exact from='/' to='/dashboard' />
+      {/* <CustomRoute isPrivate={false} exact path='/dashboard' component={Dashboard} /> */}
+      <Redirect exact from='/' to='/vacations' />
       <CustomRoute isPrivate={false} exact path='/myProfile' component={MyProfile} />
       <CustomRoute isPrivate={false} exact path='/vacations' component={VacationsContainer} />
       <CustomRoute isPrivate={false} exact path='/employees' component={Employees} />

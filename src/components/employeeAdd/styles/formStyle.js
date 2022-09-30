@@ -87,6 +87,10 @@ const formStyle = theme => {
     },
     errorP: {
       color: 'red'
+    },
+    header: {
+      display: 'flex',
+      lineHeight: '24px'
     }
   }
 }

@@ -24,7 +24,7 @@ async function sha256(password) {
 }
 
 const LoginPage = props => {
-  const { setToken } = props
+  const { setToken, setRegister } = props
   const theme = useTheme()
   const history = useHistory()
 
@@ -58,6 +58,7 @@ const LoginPage = props => {
   }
 
   const handleClickRegister = () => {
+    setRegister(true)
     history.push({ pathname: `/register` })
   }
 
@@ -120,7 +121,8 @@ const LoginPage = props => {
 }
 
 LoginPage.propTypes = {
-  setToken: PropTypes.func.isRequired
+  setToken: PropTypes.func.isRequired,
+  setRegister: PropTypes.func.isRequired
 }
 
 export default LoginPage

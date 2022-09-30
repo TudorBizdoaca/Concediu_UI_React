@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import employeeStyle from 'features/employee/styles/employeeStyle'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import EmployeeHeader from './EmployeeHeader'
 import { Button, Grid, TextField, Typography } from '@material-ui/core'
 import { Cancel } from '@material-ui/icons'
@@ -14,16 +14,6 @@ import { reducer } from './reducer'
 
 const useStyles = makeStyles(employeeStyle)
 
-const id = '1'
-const email = 'alberto.chirita@totalsoft.ro'
-const nrTelefon = '0727123456'
-const cnp = 1951151123456
-const serie = 'RT'
-const no = 123456
-const parola = 'Parola1@#'
-const dataAngajare = '22/08/2022'
-const zileConcediu = 21
-
 const initialState = {
   employee: {},
   isEditing: false
@@ -33,10 +23,12 @@ function Employee() {
   const classes = useStyles()
   const history = useHistory()
 
+  const { id } = useParams()
+
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const { data, loading } = useQueryWithErrorHandling(GET_EMPLOYEE, {
-    variables: { IdAngajat: 20 }
+    variables: { IdAngajat: parseInt(id) }
   })
 
   useEffect(() => {

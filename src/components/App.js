@@ -17,6 +17,7 @@ import { ToastContainer, CheckInternetConnection } from '@bit/totalsoft_oss.reac
 import LoginPage from './login/LoginPage'
 import useToken from './login/UseToken'
 import UserDataProvider from 'providers/UserDataProvider'
+import RegisterContainer from 'features/register/RegisterContainer'
 
 const useStyles = makeStyles(appStyle)
 const isWeb = () => window.matchMedia('(min-width: 480px)')?.matches
@@ -27,6 +28,7 @@ function App(props) {
   const { location } = props
   const { i18n } = useTranslation()
   const { token, setToken } = useToken()
+  const [register, setRegister] = useState(false)
 
   const [drawerOpen, setDrawerOpen] = useState(isWeb())
   window.onresize = _e => setDrawerOpen(isWeb())
@@ -59,11 +61,14 @@ function App(props) {
       [classes.mainPanelSidebarMini]: !drawerOpen
     })
 
-  // console.log(location.pathname)
-
   if (!token) {
-    return <LoginPage setToken={setToken} />
+    return register ? <RegisterContainer setRegister={setRegister} /> : <LoginPage setToken={setToken} setRegister={setRegister} />
   }
+
+  // useEffect(() => {
+  //   if (register) history.push({ pathname: `/register` })
+  //   else history.push({ pathname: `/` })
+  // }, [register])
 
   return (
     <div className={classes.wrapper}>
